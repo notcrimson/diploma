@@ -63,23 +63,7 @@ namespace курсач
             StudentPU sPU = new StudentPU();
             sPU.Show();
             this.Hide();
-        }
-
-        private void Units_Resize(object sender, EventArgs e)
-        {
-            //int locx = (flowLayoutPanel1.Width) / 2 - (panel3.Width / 2);
-            //int locy = panel3.Location.Y;
-            //panel3.Location = new Point(locx, locy);
-
-            //int locx2 = (flowLayoutPanel1.Width) / 2 - (listBox1.Width / 2);
-            //int locy2 = listBox1.Location.Y;
-            //listBox1.Location = new Point(locx2, locy2);
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        }       
 
         private void Write_a_test_Click(object sender, EventArgs e)
         {
@@ -92,6 +76,21 @@ namespace курсач
             adminAddTests a = new adminAddTests();
             a.Show();
             Hide();
+        } 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
+        private void Units_Resize(object sender, EventArgs e)
+        {
+            //int locx = (flowLayoutPanel1.Width) / 2 - (panel3.Width / 2);
+            //int locy = panel3.Location.Y;
+            //panel3.Location = new Point(locx, locy);
+
+            //int locx2 = (flowLayoutPanel1.Width) / 2 - (listBox1.Width / 2);
+            //int locy2 = listBox1.Location.Y;
+            //listBox1.Location = new Point(locx2, locy2);
+        }
+
     }
 }

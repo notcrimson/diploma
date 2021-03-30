@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
             this.OpenPU = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.Write_a_test = new System.Windows.Forms.Button();
             this.professionalunitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
@@ -54,7 +53,6 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.OpenPU);
-            this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.Write_a_test);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -73,17 +71,6 @@
             this.OpenPU.Text = "Open PU";
             this.OpenPU.UseVisualStyleBackColor = true;
             this.OpenPU.Click += new System.EventHandler(this.OpenPU_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button3.Location = new System.Drawing.Point(695, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 34);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Play a game";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             // 
             // Write_a_test
             // 
@@ -171,7 +158,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button Write_a_test;
         private System.Windows.Forms.Button OpenPU;
         private System.Windows.Forms.BindingSource professionalunitBindingSource;
