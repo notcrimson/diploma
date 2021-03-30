@@ -47,7 +47,7 @@ namespace курсач
             ImageConverter conv = new ImageConverter();
             image = (byte[])conv.ConvertTo(pictureBox1.Image, typeof(byte[]));
 
-            User usr = new User();
+            Users usr = new Users();
 
             if (confirmationForUpdate)
             {

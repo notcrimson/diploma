@@ -24,7 +24,7 @@ namespace курсач
 
             label1.Text = selectedItem;
             string contentString;
-            Professional_unit pr = db.Professional_units.Find(selectedItem);
+            Professional_units pr = db.Professional_units.Find(selectedItem);
             if (pr != null)
             {
                 contentString = Encoding.ASCII.GetString(pr.ContentOfPU);

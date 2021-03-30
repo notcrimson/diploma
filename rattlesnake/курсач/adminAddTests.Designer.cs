@@ -55,6 +55,7 @@
             // 
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Size = new System.Drawing.Size(1146, 85);
             this.panel1.Controls.SetChildIndex(this.label1, 0);
             this.panel1.Controls.SetChildIndex(this.label5, 0);
             this.panel1.Controls.SetChildIndex(this.textBox3, 0);
@@ -66,14 +67,24 @@
             this.panel2.Controls.Add(this.deleteQ);
             this.panel2.Controls.Add(this.addTest);
             this.panel2.Controls.Add(this.addQuestion);
+            this.panel2.Location = new System.Drawing.Point(0, 610);
+            this.panel2.Size = new System.Drawing.Size(1146, 50);
             this.panel2.Controls.SetChildIndex(this.BackButton, 0);
             this.panel2.Controls.SetChildIndex(this.addQuestion, 0);
             this.panel2.Controls.SetChildIndex(this.addTest, 0);
             this.panel2.Controls.SetChildIndex(this.deleteQ, 0);
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(1117, -1);
+            // 
+            // fHide
+            // 
+            this.fHide.Location = new System.Drawing.Point(1089, -3);
+            // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(89, 11);
+            this.label1.Location = new System.Drawing.Point(158, 11);
             this.label1.Size = new System.Drawing.Size(856, 24);
             // 
             // questionField
@@ -168,14 +179,14 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 85);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1008, 460);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1146, 525);
             this.flowLayoutPanel1.TabIndex = 7;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // addQuestion
             // 
             this.addQuestion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.addQuestion.Location = new System.Drawing.Point(274, 10);
+            this.addQuestion.Location = new System.Drawing.Point(343, 10);
             this.addQuestion.Name = "addQuestion";
             this.addQuestion.Size = new System.Drawing.Size(222, 32);
             this.addQuestion.TabIndex = 0;
@@ -186,7 +197,7 @@
             // deleteQ
             // 
             this.deleteQ.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.deleteQ.Location = new System.Drawing.Point(502, 10);
+            this.deleteQ.Location = new System.Drawing.Point(571, 10);
             this.deleteQ.Name = "deleteQ";
             this.deleteQ.Size = new System.Drawing.Size(197, 32);
             this.deleteQ.TabIndex = 1;
@@ -201,7 +212,7 @@
             // addTest
             // 
             this.addTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addTest.Location = new System.Drawing.Point(888, 10);
+            this.addTest.Location = new System.Drawing.Point(1026, 10);
             this.addTest.Name = "addTest";
             this.addTest.Size = new System.Drawing.Size(98, 32);
             this.addTest.TabIndex = 7;
@@ -229,9 +240,9 @@
             // 
             // adminAddTests
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            //this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 595);
+            //this.ClientSize = new System.Drawing.Size(1146, 660);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "adminAddTests";
             this.Text = "adminAddTests";

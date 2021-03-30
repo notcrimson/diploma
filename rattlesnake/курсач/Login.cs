@@ -12,7 +12,7 @@ namespace курсач
 {
     public partial class Login : basicForm
     {
-        public static User USER { get; set; }
+        public static Users USER { get; set; }
         
 
         public Login()
@@ -29,7 +29,7 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User usr = db.Users.Where(x=> x.Login == textBox1.Text).FirstOrDefault();
+            Users usr = db.Users.Where(x=> x.Login == textBox1.Text).FirstOrDefault();
             if ((usr != null) && (usr.Password == textBox2.Text))
             {
                 USER = usr;

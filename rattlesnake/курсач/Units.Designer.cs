@@ -98,7 +98,7 @@
             // 
             // professionalunitBindingSource
             // 
-            this.professionalunitBindingSource.DataSource = typeof(курсач.Professional_unit);
+            this.professionalunitBindingSource.DataSource = typeof(курсач.Professional_units);
             // 
             // panel4
             // 

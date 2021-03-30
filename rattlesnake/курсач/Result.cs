@@ -26,6 +26,6 @@ namespace курсач
 
         public virtual The_Test The_Test { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

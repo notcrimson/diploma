@@ -59,7 +59,7 @@ namespace курсач
             {
                 byte[] contentOfPuBytearray = Encoding.ASCII.GetBytes(contentOfPuString);
 
-                Professional_unit pu = new Professional_unit();
+                Professional_units pu = new Professional_units();
                 //MessageBox.Show(fileNameString);
                 pu.Name_of_PU = fileNameString;
                 pu.ContentOfPU = contentOfPuBytearray;

@@ -92,14 +92,14 @@
       <DependentUpon>AdminPUsChanges.cs</DependentUpon>
     </Compile>
     <Compile Include="Model1.cs" />
-    <Compile Include="Professional_unit.cs" />
+    <Compile Include="Professional_units.cs" />
     <Compile Include="Profile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Question.cs" />
+    <Compile Include="Questions.cs" />
     <Compile Include="Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,7 +127,8 @@
     <Compile Include="StudentPU.Designer.cs">
       <DependentUpon>StudentPU.cs</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs" />
+    <Compile Include="Student_profile.cs" />
+    <Compile Include="sysdiagrams.cs" />
     <Compile Include="TestsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,13 +148,13 @@
     <Compile Include="Units.Designer.cs">
       <DependentUpon>Units.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs" />
     <EmbeddedResource Include="adminAddTests.resx">
       <DependentUpon>adminAddTests.cs</DependentUpon>
     </EmbeddedResource>

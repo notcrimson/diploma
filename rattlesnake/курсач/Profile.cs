@@ -22,7 +22,7 @@ namespace курсач
             Form3 menu = new Form3();
             previousForm = menu;
 
-            User studnet = db.Users.Where(x => x.UserId == Login.USER.UserId && x.Role == "student").FirstOrDefault();
+            Users studnet = db.Users.Where(x => x.UserId == Login.USER.UserId && x.Role == "student").FirstOrDefault();
             if (studnet != null)
             {
                 using (var ms = new MemoryStream(studnet.ProfilePic))
@@ -31,7 +31,7 @@ namespace курсач
                 }
                 label3.Text = studnet.Name;
             }
-            var results = db.Results.Where(x => x.StudentID == Login.USER.UserId);
+            var results = db.Result.Where(x => x.StudentID == Login.USER.UserId);
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();

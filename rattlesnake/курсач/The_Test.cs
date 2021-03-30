@@ -11,8 +11,8 @@ namespace курсач
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public The_Test()
         {
-            Questions = new HashSet<Question>();
-            Results = new HashSet<Result>();
+            Questions = new HashSet<Questions>();
+            Result = new HashSet<Result>();
         }
 
         [Key]
@@ -28,12 +28,12 @@ namespace курсач
         [Column("Correct answers")]
         public string Correct_answers { get; set; }
 
-        public virtual Professional_unit Professional_units { get; set; }
+        public virtual Professional_units Professional_units { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Questions> Questions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Result> Results { get; set; }
+        public virtual ICollection<Result> Result { get; set; }
     }
 }

@@ -70,7 +70,7 @@ namespace курсач
 
             var queryForNQ = from k in db.Questions
                              where k.Test_name == listOfTests.testName
-                             select k.Question1;
+                             select k.Question;
             count = queryForNQ.Count();
 
 
@@ -88,7 +88,7 @@ namespace курсач
             {
                 string s = Questions[i];
                 var qForPossibleAnswers = from pA in db.Questions
-                                          where pA.Question1 == s && pA.Test_name == label1.Text
+                                          where pA.Question == s && pA.Test_name == label1.Text
                                           select pA.Answers;
 
                 foreach (var q in qForPossibleAnswers)
@@ -228,7 +228,7 @@ namespace курсач
             r.Answers = k;
             r.StudentID = Login.USER.UserId;
             r.Percentage = percent.ToString() + "%";
-            db.Results.Add(r);
+            db.Result.Add(r);
             try
             {
                 db.SaveChanges();

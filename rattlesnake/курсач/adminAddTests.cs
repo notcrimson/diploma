@@ -318,12 +318,12 @@ namespace курсач
             }
 
 
-            Question test = new Question();
+            Questions test = new Questions();
             foreach (var a in questions)
             {
                 //test.Name_of_PU = selectedItem;
                 test.Test_name = label1.Text;
-                test.Question1 = questions[num];
+                test.Question = questions[num];
                 test.Answers = allAnswers[num];
                 db.Questions.Add(test);
                 try
