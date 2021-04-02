@@ -8,7 +8,7 @@ namespace курсач
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model11")
+            : base("name=Model1")
         {
         }
 
@@ -43,6 +43,10 @@ namespace курсач
                 .Property(e => e.Answers)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Questions>()
+                .Property(e => e.Correct_Answer)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Result>()
                 .Property(e => e.Test_name)
                 .IsUnicode(false);
@@ -54,10 +58,6 @@ namespace курсач
             modelBuilder.Entity<Result>()
                 .Property(e => e.Time)
                 .HasPrecision(0);
-
-            modelBuilder.Entity<Result>()
-                .Property(e => e.Percentage)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Student_profile>()
                 .Property(e => e.Student_login)

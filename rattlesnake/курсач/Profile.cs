@@ -38,7 +38,15 @@ namespace курсач
                 //resultControl.AutoSize = true;
                 //resultControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
                 resultControl.TName = result.Test_name;
-                resultControl.TPercent = result.Percentage;
+                resultControl.TPercent = result.Percentage.ToString() + "%";
+                if (result.Percentage <= 100 && result.Percentage >=90)
+                {
+                    resultControl.BackColor = Color.SeaGreen;
+                }
+                else if (result.Percentage <= 90)
+                {
+                    resultControl.BackColor = Color.IndianRed;
+                }
                 resultLayoutPanel.Controls.Add(resultControl);
             }
         }

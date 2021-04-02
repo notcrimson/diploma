@@ -20,6 +20,9 @@ namespace курсач
 
         public string Answers { get; set; }
 
+        [StringLength(200)]
+        public string Correct_Answer { get; set; }
+
         public virtual The_Test The_Test { get; set; }
     }
 }

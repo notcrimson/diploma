@@ -21,8 +21,7 @@ namespace курсач
 
         public TimeSpan? Time { get; set; }
 
-        [StringLength(50)]
-        public string Percentage { get; set; }
+        public int? Percentage { get; set; }
 
         public virtual The_Test The_Test { get; set; }
 

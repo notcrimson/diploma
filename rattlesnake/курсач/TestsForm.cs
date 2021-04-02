@@ -16,7 +16,7 @@ namespace курсач
     {
         List<string> multipleAnswers = new List<string>();
         List<string> seperatedAnswer = new List<string>();
-
+        public static float percent;
         string[] seperator1 = { ";" };
         string[] seperator2 = { ", " };
         int count;
@@ -27,6 +27,7 @@ namespace курсач
 
         private void Tests_Load(object sender, EventArgs e)
         {
+
 
             //List<object> lmao = new List<object>();
             //var quer = from paa in db.Tests
@@ -104,7 +105,10 @@ namespace курсач
             {
                 int answerY = radioButton2.Location.Y;
                 Panel gp = new Panel();
+                gp.Name = "questionPanel" + i.ToString();
                 gp.Location = new Point(panel3.Location.X, j);
+                gp.Leave += Gp_Leave;
+                gp.Enter += Gp_Enter;
                 gp.BorderStyle = panel3.BorderStyle;
                 gp.BackColor = panel3.BackColor;
                 gp.Size = panel3.Size;
@@ -113,7 +117,8 @@ namespace курсач
 
                 Label ll = new Label();
                 ll.Location = label3.Location;
-                ll.AutoSize = true;
+                ll.AutoSize = label3.AutoSize;
+                ll.Size = label3.Size;
                 ll.Text = Questions[b];
                 b++;
                 gp.Controls.Add(ll);
@@ -121,11 +126,11 @@ namespace курсач
 
                 for (int d = 0; d < numberOfAnswers[p]; d++)
                 {
-
                     RadioButton rd = new RadioButton();
                     rd.Location = new Point(radioButton2.Location.X, answerY);
                     rd.BackColor = radioButton2.BackColor;
                     rd.AutoSize = true;
+                    rd.CheckedChanged += Rd_CheckedChanged;
                     rd.Text = sepp[a];
                     a++;
                     answerY += 53;
@@ -159,11 +164,29 @@ namespace курсач
             }
         }
 
+        private void Gp_Enter(object sender, EventArgs e)
+        {
+            //Panel activePanel = sender as Panel;
+            //MessageBox.Show(activePanel.Name);
+            //activePanelll = activePanel;
+        }
+
+        private void Gp_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rd_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void finishTest_Click(object sender, EventArgs e)
         {
             float correct = 0;
             string k = "";
-            float percent;
+            string label = "";
+            
             multipleAnswers.Clear();
             seperatedAnswer.Clear();
 
@@ -187,6 +210,8 @@ namespace курсач
             //}
             //MessageBox.Show(l);
 
+
+
             List<string> answers = new List<string>();
             foreach (Panel p in flowLayoutPanel1.Controls)
             {
@@ -201,53 +226,83 @@ namespace курсач
                     }
                 }
             }
-
-            for (int i = 0; i < answers.Count; i++)
+            if (answers.Count == seperatedAnswer.Count)
             {
-                if (answers[i] == seperatedAnswer[i])
-                    correct++;
-
-                if (i + 1 == answers.Count)
+                foreach (Panel p in flowLayoutPanel1.Controls)
                 {
-                    k += answers[i] + ";";
-                }
-                else
-                {
-                    k += answers[i] + ", ";
-                }
-
-            }
-            //MessageBox.Show(correct.ToString());
-            //MessageBox.Show(k);
-            //MessageBox.Show(selectedItem);
-
-            percent = (correct / count) * 100;
-
-            Result r = new Result();
-            r.Test_name = listOfTests.testName;
-            r.Answers = k;
-            r.StudentID = Login.USER.UserId;
-            r.Percentage = percent.ToString() + "%";
-            db.Result.Add(r);
-            try
-            {
-                db.SaveChanges();
-                MessageBox.Show("result added");
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-            {
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
+                    foreach (Control c in p.Controls)
                     {
-                        MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                        if (c is Label)
+                        {
+                            label = c.Text;
+                        }
+                        if (c is RadioButton)
+                        {
+                            if (((RadioButton)c).Checked)
+                            {
+                                Questions q = db.Questions.Where(x => x.Question == label && x.Test_name == label1.Text).FirstOrDefault();
+                                if (c.Text == q.Correct_Answer)
+                                {
+                                    p.ForeColor = Color.White;
+                                    p.BackColor = Color.SeaGreen;
+                                }
+                                else
+                                {
+                                    p.ForeColor = Color.White;
+                                    p.BackColor = Color.IndianRed;
+                                }
+                            }
+                        }
+                    }
+                }
+                for (int i = 0; i < answers.Count; i++)
+                {
+                    if (answers[i] == seperatedAnswer[i])
+                        correct++;
+
+                    if (i + 1 == answers.Count)
+                    {
+                        k += answers[i] + ";";
+                    }
+                    else
+                    {
+                        k += answers[i] + ", ";
+                    }
+
+                }
+                //MessageBox.Show(correct.ToString());
+                //MessageBox.Show(k);
+                //MessageBox.Show(selectedItem);
+
+                percent = (correct / count) * 100;
+
+                Result r = new Result();
+                r.Test_name = listOfTests.testName;
+                r.Answers = k;
+                r.StudentID = Login.USER.UserId;
+                r.Percentage = (int)Math.Round(percent);
+                db.Result.Add(r);
+                try
+                {
+                    db.SaveChanges();
+                    smallWindow s = new smallWindow();
+                    s.Show();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+                    foreach (var validationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                        }
                     }
                 }
             }
-        }
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("Answer all the questions!");
+            }
         }
     }
 }
