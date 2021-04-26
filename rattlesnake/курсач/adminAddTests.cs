@@ -86,7 +86,6 @@ namespace курсач
             bp.Size = panel4.Size;
             bp.BorderStyle = panel4.BorderStyle;
             bp.BackColor = panel4.BackColor;
-            //bp.Enter += new EventHandler(this.panel4_Enter);
 
             Button add = new Button();
             add.Location = addAnswer.Location;
@@ -103,11 +102,8 @@ namespace курсач
             del.Click += new EventHandler(this.deletePossibleAnswer);
 
 
-
             bp.Controls.Add(add);
             bp.Controls.Add(del);
-            //bp.Controls.Add(le);
-            //bp.Controls.Add(cmb);
 
             p.Controls.Add(bp);
             flowLayoutPanel1.Controls.Add(p);
@@ -167,21 +163,23 @@ namespace курсач
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //int countQ = 0;
-            //var panel = flowLayoutPanel1.Controls[panelN];
-            //foreach (Control h in panel.Controls)
-            //{
-            //    if (h.GetType() == typeof(RadioButton))
-            //    {
-            //        countQ++;
-            //    }
-            //}
+            int countQ = 0;
+            var panel = flowLayoutPanel1.Controls[panelN];
+            if (panel != null)
+            {
+                foreach (Control h in panel.Controls)
+                {
+                    if (h.GetType() == typeof(RadioButton))
+                    {
+                        countQ++;
+                    }
+                }
 
-            //for (int i = 0; i < countQ; i++)
-            //{
-            //    spaceBetweenQ = textBox2.Location.Y + 50 + (i * 50);
-            //}
-
+                for (int i = 0; i < countQ; i++)
+                {
+                    spaceBetweenQ = textBox2.Location.Y + 50 + (i * 50);
+                }
+            }
         }
 
         private void panel0_Enter(object sender, EventArgs e)
@@ -283,7 +281,7 @@ namespace курсач
 
             foreach (Control p in flowLayoutPanel1.Controls)
             {
-                if(p is Panel && p.Visible)
+                if (p is Panel && p.Visible)
                 {
                     foreach (Control c in p.Controls)
                     {
@@ -314,7 +312,7 @@ namespace курсач
                     k = "";
                     pAnswers.Clear();
                 }
-               
+
             }
 
 
@@ -325,6 +323,7 @@ namespace курсач
                 test.Test_name = label1.Text;
                 test.Question = questions[num];
                 test.Answers = allAnswers[num];
+                test.Correct_Answer = answers[num];
                 db.Questions.Add(test);
                 try
                 {
@@ -408,7 +407,7 @@ namespace курсач
             pp = flowLayoutPanel1.Controls[panelN];
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

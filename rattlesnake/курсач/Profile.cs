@@ -35,8 +35,7 @@ namespace курсач
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();
-                //resultControl.AutoSize = true;
-                //resultControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+
                 resultControl.TName = result.Test_name;
                 resultControl.TPercent = result.Percentage.ToString() + "%";
                 if (result.Percentage <= 100 && result.Percentage >=90)
