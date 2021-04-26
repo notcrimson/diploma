@@ -55,10 +55,6 @@ namespace курсач
                 .Property(e => e.Answers)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Result>()
-                .Property(e => e.Time)
-                .HasPrecision(0);
-
             modelBuilder.Entity<Student_profile>()
                 .Property(e => e.Student_login)
                 .IsUnicode(false);

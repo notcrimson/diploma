@@ -16,10 +16,13 @@ namespace курсач
         [StringLength(50)]
         public string Test_name { get; set; }
 
+        [Required]
         public string Question { get; set; }
 
+        [Required]
         public string Answers { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string Correct_Answer { get; set; }
 
