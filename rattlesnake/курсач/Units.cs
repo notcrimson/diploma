@@ -43,7 +43,6 @@ namespace курсач
 
         private void listBox1_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("kek");
             if (listBox1.SelectedItem != null)
             {
                 selectedItem = listBox1.SelectedItem.ToString();

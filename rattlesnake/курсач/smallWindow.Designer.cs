@@ -81,7 +81,7 @@
             this.circularProgressBar1.OuterColor = System.Drawing.Color.Gray;
             this.circularProgressBar1.OuterMargin = -25;
             this.circularProgressBar1.OuterWidth = 26;
-            this.circularProgressBar1.ProgressColor = System.Drawing.Color.SeaGreen;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(175)))), ((int)(((byte)(21)))));
             this.circularProgressBar1.ProgressWidth = 25;
             this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.circularProgressBar1.Size = new System.Drawing.Size(130, 125);

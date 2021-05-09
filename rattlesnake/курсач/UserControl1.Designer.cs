@@ -31,6 +31,7 @@ namespace курсач
         {
             this.percentage = new System.Windows.Forms.Label();
             this.testName = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // percentage
@@ -55,12 +56,24 @@ namespace курсач
             this.testName.Text = "Test name";
             this.testName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Date
+            // 
+            this.Date.AutoSize = true;
+            this.Date.Location = new System.Drawing.Point(481, 11);
+            this.Date.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(114, 44);
+            this.Date.TabIndex = 0;
+            this.Date.Text = "20/06/2021\r\n 12:30";
+            this.Date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.testName);
+            this.Controls.Add(this.Date);
             this.Controls.Add(this.percentage);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -77,5 +90,6 @@ namespace курсач
 
         private System.Windows.Forms.Label percentage;
         private System.Windows.Forms.Label testName;
+        private System.Windows.Forms.Label Date;
     }
 }

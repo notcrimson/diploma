@@ -19,15 +19,22 @@ namespace курсач
 
         private void smallWindow_Load(object sender, EventArgs e)
         {
-            label1.Text = "You scored a " + TestsForm.percent.ToString() + "%";
+            label1.Text = "You scored a " + ((int)Math.Round(TestsForm.percent)).ToString() + "%";
             circularProgressBar1.Value = (int)Math.Round(TestsForm.percent);
             if (TestsForm.percent <= 100 && TestsForm.percent >= 90)
             {
                 circularProgressBar1.ProgressColor = Color.SeaGreen;
+                label2.Text = "Congrats, you passed!";
             }
-            else if (TestsForm.percent <= 90)
+            else if (TestsForm.percent <= 90 && TestsForm.percent >=50)
+            {
+                circularProgressBar1.ProgressColor = Color.Gold;
+                label2.Text = "Very close, try again.";
+            }
+            else if (TestsForm.percent <= 50)
             {
                 circularProgressBar1.ProgressColor = Color.IndianRed;
+                label2.Text = "You did'nt pass, try again next time.";
             }
         }
 
@@ -40,6 +47,10 @@ namespace курсач
             }
             else
             {
+                TestsForm.testForm.Close();
+                Profile profile = new Profile();
+                profile.Show();
+                Close();
                 //foreach (Form f in Application.OpenForms)
                 //{
                 //    if (f.Name != "Form3" || f.Name != "Login" || f.Name != "basicForm")

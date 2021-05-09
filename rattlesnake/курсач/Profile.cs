@@ -31,18 +31,24 @@ namespace курсач
                 }
                 label3.Text = studnet.Name;
             }
-            var results = db.Result.Where(x => x.StudentID == Login.USER.UserId);
+            var results = db.Result.Where(x => x.StudentID == Login.USER.UserId).OrderByDescending(d=> d.Date);
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();
-
+                //resultControl.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
                 resultControl.TName = result.Test_name;
+                resultControl.TDate = result.Date.ToString("dd/mm/yyyy\n" +
+                    "H:mm"); ;
                 resultControl.TPercent = result.Percentage.ToString() + "%";
-                if (result.Percentage <= 100 && result.Percentage >=90)
+                if (result.Percentage <= 100 && result.Percentage >= 90)
                 {
                     resultControl.BackColor = Color.SeaGreen;
                 }
-                else if (result.Percentage <= 90)
+                else if (result.Percentage <= 90 && result.Percentage >= 50)
+                {
+                    resultControl.BackColor = Color.FromArgb(246, 160, 21);
+                }
+                else if (result.Percentage < 50)
                 {
                     resultControl.BackColor = Color.IndianRed;
                 }

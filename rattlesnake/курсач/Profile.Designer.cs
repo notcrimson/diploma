@@ -33,10 +33,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.sortingPanel = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.sortingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -45,11 +48,13 @@
             // 
             // resultLayoutPanel
             // 
+            this.resultLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resultLayoutPanel.AutoScroll = true;
-            this.resultLayoutPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.resultLayoutPanel.Location = new System.Drawing.Point(255, 85);
+            this.resultLayoutPanel.Location = new System.Drawing.Point(255, 142);
             this.resultLayoutPanel.Name = "resultLayoutPanel";
-            this.resultLayoutPanel.Size = new System.Drawing.Size(753, 460);
+            this.resultLayoutPanel.Size = new System.Drawing.Size(753, 403);
             this.resultLayoutPanel.TabIndex = 3;
             // 
             // panel3
@@ -91,11 +96,31 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // sortingPanel
+            // 
+            this.sortingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sortingPanel.Controls.Add(this.comboBox1);
+            this.sortingPanel.Location = new System.Drawing.Point(255, 85);
+            this.sortingPanel.Name = "sortingPanel";
+            this.sortingPanel.Size = new System.Drawing.Size(753, 51);
+            this.sortingPanel.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(160, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(199, 30);
+            this.comboBox1.TabIndex = 0;
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 595);
+            this.Controls.Add(this.sortingPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.resultLayoutPanel);
             this.Name = "Profile";
@@ -105,11 +130,13 @@
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.resultLayoutPanel, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
+            this.Controls.SetChildIndex(this.sortingPanel, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.sortingPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -120,5 +147,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel sortingPanel;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

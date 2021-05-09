@@ -29,9 +29,16 @@
         private void InitializeComponent()
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.writeTest = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.writeTest);
+            this.panel2.Controls.SetChildIndex(this.BackButton, 0);
+            this.panel2.Controls.SetChildIndex(this.writeTest, 0);
             // 
             // label2
             // 
@@ -58,8 +65,18 @@
             this.listBox1.Size = new System.Drawing.Size(1008, 460);
             this.listBox1.TabIndex = 2;
             this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            // 
+            // writeTest
+            // 
+            this.writeTest.Location = new System.Drawing.Point(863, 10);
+            this.writeTest.Name = "writeTest";
+            this.writeTest.Size = new System.Drawing.Size(123, 32);
+            this.writeTest.TabIndex = 3;
+            this.writeTest.Text = "Write test";
+            this.writeTest.UseVisualStyleBackColor = true;
+            this.writeTest.Visible = false;
+            this.writeTest.Click += new System.EventHandler(this.writeTest_Click);
             // 
             // listOfTests
             // 
@@ -83,5 +100,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button writeTest;
     }
 }

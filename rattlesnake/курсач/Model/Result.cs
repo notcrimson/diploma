@@ -19,7 +19,7 @@ namespace курсач
 
         public int? StudentID { get; set; }
 
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         public int? Percentage { get; set; }
 

@@ -14,6 +14,7 @@ namespace курсач
 {
     public partial class TestsForm : basicForm
     {
+        public static Form testForm = new Form();
         List<string> multipleAnswers = new List<string>();
         List<string> seperatedAnswer = new List<string>();
         public static float percent;
@@ -38,7 +39,6 @@ namespace курсач
             //    lmao.Add(aa);
             //}
             //testBindingSource.DataSource = lmao;
-            //для андрея
 
             listOfTests l = new listOfTests();
             previousForm = l;
@@ -228,6 +228,7 @@ namespace курсач
             }
             if (answers.Count == seperatedAnswer.Count)
             {
+                testForm = this;
                 foreach (Panel p in flowLayoutPanel1.Controls)
                 {
                     foreach (Control c in p.Controls)
@@ -281,6 +282,7 @@ namespace курсач
                 r.Answers = k;
                 r.StudentID = Login.USER.UserId;
                 r.Percentage = (int)Math.Round(percent);
+                r.Date = DateTime.Now;
                 db.Result.Add(r);
                 try
                 {
@@ -298,6 +300,7 @@ namespace курсач
                         }
                     }
                 }
+                finishTest.Visible = false;
             }
             else
             {

@@ -26,6 +26,11 @@ namespace курсач
             get { return testName.Text; }
             set { testName.Text = value; }
         }
+        public string TDate
+        {
+            get { return Date.Text; }
+            set { Date.Text = value; }
+        }
         public string TPercent
         {
             get { return percentage.Text; }
