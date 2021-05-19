@@ -83,7 +83,6 @@
             // 
             this.label1.Location = new System.Drawing.Point(255, 11);
             this.label1.Size = new System.Drawing.Size(421, 30);
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // questionField
             // 

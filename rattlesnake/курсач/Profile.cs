@@ -13,6 +13,7 @@ namespace курсач
 {
     public partial class Profile : basicForm
     {
+        private Users student { get; set; }
         public Profile()
         {
             InitializeComponent();
@@ -21,17 +22,21 @@ namespace курсач
         {
             Form3 menu = new Form3();
             previousForm = menu;
-
-            Users studnet = db.Users.Where(x => x.UserId == Login.USER.UserId && x.Role == "student").FirstOrDefault();
-            if (studnet != null)
+            student = db.Users.Where(x => x.UserId == Login.USER.UserId && x.Role == "student").FirstOrDefault();
+            if (student != null)
             {
-                using (var ms = new MemoryStream(studnet.ProfilePic))
+                using (var ms = new MemoryStream(student.ProfilePic))
                 {
                     pictureBox2.Image = Image.FromStream(ms);
                 }
-                label3.Text = studnet.Name;
+                label3.Text = student.Name;
             }
-            var results = db.Result.Where(x => x.StudentID == Login.USER.UserId).OrderByDescending(d=> d.Date);
+
+            GetResults();
+        }
+        private void GetResults()
+        {
+            IQueryable<Result> results = db.Result.Where(x => x.StudentID == Login.USER.UserId).OrderByDescending(d => d.Date);
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();
@@ -54,11 +59,19 @@ namespace курсач
                 }
                 resultLayoutPanel.Controls.Add(resultControl);
             }
+            results = null;
         }
-        protected override void BackButton_Click(object sender, EventArgs e)
+
+        private void Profile_FormClosed(object sender, FormClosedEventArgs e)
         {
-            previousForm.Show();
-            Close();
+            Dispose();
+            student = null;
         }
+        //protected override void BackButton_Click(object sender, EventArgs e)
+        //{
+        //    Close();
+        //    previousForm.Show();
+
+        //}
     }
 }

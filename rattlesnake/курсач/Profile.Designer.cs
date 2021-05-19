@@ -125,6 +125,7 @@
             this.Controls.Add(this.resultLayoutPanel);
             this.Name = "Profile";
             this.Text = "Profile";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Profile_FormClosed);
             this.Load += new System.EventHandler(this.Profile_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);

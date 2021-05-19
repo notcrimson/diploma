@@ -90,10 +90,7 @@
             this.panel3.Size = new System.Drawing.Size(1008, 460);
             this.panel3.TabIndex = 5;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
+           
             // AdminPUsChanges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);

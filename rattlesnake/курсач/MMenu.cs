@@ -12,6 +12,7 @@ namespace курсач
 {
     public partial class Form3 : basicForm
     {
+        
         public Form3()
         {
             InitializeComponent();
@@ -33,9 +34,10 @@ namespace курсач
 
         private void profile_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             Profile profile = new Profile();
             profile.Show();
+            this.Hide();
         }
     }
 }

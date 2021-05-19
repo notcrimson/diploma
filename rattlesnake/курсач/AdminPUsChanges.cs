@@ -15,6 +15,7 @@ namespace курсач
     {
         public string contentOfPuString;
         public string fileNameString;
+        public string path = Environment.CurrentDirectory.ToString() + @"\PUs\";
         public AdminPUsChanges()
         {
             InitializeComponent();
@@ -28,7 +29,6 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
             openFileDialog1.InitialDirectory = path;
             openFileDialog1.Filter = "Word Document|*.doc; *.docx";
             DialogResult result = openFileDialog1.ShowDialog();
@@ -86,10 +86,6 @@ namespace курсач
             {
                 MessageBox.Show("File not selected");
             }
-        }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
         }
     }
 }

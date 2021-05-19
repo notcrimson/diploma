@@ -12,9 +12,7 @@ namespace курсач
 {
     public partial class Login : basicForm
     {
-        public static Users USER { get; set; }
-        
-
+        private Users usr = new Users();
         public Login()
         {
             InitializeComponent();
@@ -22,6 +20,9 @@ namespace курсач
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            previousForm = null;
+            usr = null;
+            USER = null;
             textBox1.Text = "test";
             textBox2.Text = "pas1!A";
             ActiveControl = textBox1;
@@ -29,23 +30,34 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Users usr = db.Users.Where(x=> x.Login == textBox1.Text).FirstOrDefault();
+             usr = db.Users.Where(x => x.Login == textBox1.Text).FirstOrDefault();
+
+            //var linq = from users in db.Users
+            //           where users.Login == textBox1.Text
+            //           select users;
+
+            //Users usr = linq.FirstOrDefault();
+
             if ((usr != null) && (usr.Password == textBox2.Text))
             {
                 USER = usr;
-                previousForm = this;
-
                 if (usr.Role == "admin")
                 {
+                    this.Hide();
+                    //this.Visible = false;
                     adminMenu admin = new adminMenu();
                     admin.Show();
-                    this.Hide();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
                 else if (usr.Role == "student")
                 {
+                    this.Hide();
+                    //this.Visible = false;
                     Form3 menu = new Form3();
                     menu.Show();
-                    this.Hide();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
                 }
             }
             else
@@ -65,11 +77,6 @@ namespace курсач
             Register reg = new Register();
             reg.Show();
             Hide();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

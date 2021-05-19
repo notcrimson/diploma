@@ -208,7 +208,8 @@ namespace курсач
 
         private void textBox3_Leave(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show($"So you want the name of the test to be:\n\"{textBox3.Text}\"", "Test name", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult r = MessageBox.Show($"So you want the name of the test to be:\n\"{textBox3.Text}\"", "" +
+                "Test name", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
                 textBox3.Visible = false;
@@ -362,21 +363,6 @@ namespace курсач
 
         }
 
-        private void panelQ_Click(object sender, EventArgs e)
-        {
-            //Panel questionPanel = sender as Panel;
-            //panelPossibleAnswerName = questionPanel.Name;
-            ////var panel = panelN.Controls[pane];
-            //foreach(Control c in panel.Controls)
-            //{
-            //    if (c is Panel && c.Name != "panel4")
-            //    {
-            //        ((Panel)c).BorderStyle = BorderStyle.None;
-            //    }
-            //}
-            //questionPanel.BorderStyle = BorderStyle.Fixed3D;
-        }
-
         private void panel4_Click(object sender, EventArgs e)
         {
             string s = "";
@@ -405,11 +391,6 @@ namespace курсач
         private void textBox2_Enter(object sender, EventArgs e)
         {
             pp = flowLayoutPanel1.Controls[panelN];
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

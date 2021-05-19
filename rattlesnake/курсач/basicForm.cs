@@ -13,11 +13,11 @@ namespace курсач
 {
     public partial class basicForm : Form
     {
-        
         public static Model1 db = new Model1();
+        public static Users USER { get; set; }
         public static Form previousForm { get; set; }
-        public string path = Environment.CurrentDirectory.ToString() + @"\PUs\";
-        public static string selectedItem;
+        public static string selectedItem { get; set; }
+
         Point lastClick;
         int mx;
         int my;
@@ -31,7 +31,10 @@ namespace курсач
 
         private void basicForm_Load(object sender, EventArgs e)
         {
-
+            if (Form.ActiveForm is Login)
+                BackButton.Visible = false;
+            else
+                BackButton.Visible = true;
         }
 
         public void label2_MouseHover(object sender, EventArgs e)
@@ -169,7 +172,7 @@ namespace курсач
                         adminMenu admenu = new adminMenu();
                         admenu.Show();
                         Close();
-                    }  
+                    }
                 }
             }
         }
@@ -186,16 +189,17 @@ namespace курсач
 
         protected virtual void BackButton_Click(object sender, EventArgs e)
         {
-            previousForm.Show();
+            Dispose();
             Close();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            previousForm.Show();
+            //previousForm.Visible = true;
         }
 
         private void basicForm_Activated(object sender, EventArgs e)
         {
-            if (Form.ActiveForm is Login)
-                BackButton.Visible = false;
-            else
-                BackButton.Visible = true;
+
         }
     }
 }

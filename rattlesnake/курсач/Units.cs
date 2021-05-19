@@ -39,6 +39,7 @@ namespace курсач
             {
                 listBox1.Items.Add(Pu.Name_of_PU);
             }
+            pus = null;
         }
 
         private void listBox1_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace курсач
 
         private void OpenPU_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             StudentPU sPU = new StudentPU();
             sPU.Show();
             this.Hide();
@@ -66,20 +68,18 @@ namespace курсач
 
         private void Write_a_test_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             listOfTests test = new listOfTests();
             test.Show();
             Hide();
         }
         private void addTest_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             adminAddTests a = new adminAddTests();
             a.Show();
             Hide();
         } 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void Units_Resize(object sender, EventArgs e)
         {
             //int locx = (flowLayoutPanel1.Width) / 2 - (panel3.Width / 2);
