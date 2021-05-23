@@ -15,10 +15,10 @@ namespace курсач
         public virtual DbSet<Professional_units> Professional_units { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Result> Result { get; set; }
-        public virtual DbSet<Student_profile> Student_profile { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<The_Test> The_Test { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Vocabulary> Vocabulary { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -30,6 +30,11 @@ namespace курсач
                 .HasMany(e => e.The_Test)
                 .WithRequired(e => e.Professional_units)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Professional_units>()
+                .HasMany(e => e.Vocabulary)
+                .WithOptional(e => e.Professional_units)
+                .HasForeignKey(e => e.PU_Name);
 
             modelBuilder.Entity<Questions>()
                 .Property(e => e.Test_name)
@@ -53,10 +58,6 @@ namespace курсач
 
             modelBuilder.Entity<Result>()
                 .Property(e => e.Answers)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Student_profile>()
-                .Property(e => e.Student_login)
                 .IsUnicode(false);
 
             modelBuilder.Entity<The_Test>()
@@ -96,6 +97,18 @@ namespace курсач
                 .HasMany(e => e.Result)
                 .WithOptional(e => e.Users)
                 .HasForeignKey(e => e.StudentID);
+
+            modelBuilder.Entity<Vocabulary>()
+                .Property(e => e.PU_Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Vocabulary>()
+                .Property(e => e.Word)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Vocabulary>()
+                .Property(e => e.Definition)
+                .IsUnicode(false);
         }
     }
 }

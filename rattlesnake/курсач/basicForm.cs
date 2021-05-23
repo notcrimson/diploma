@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using курсач.Properties;
+using System.IO;
 
 namespace курсач
 {
@@ -17,6 +18,9 @@ namespace курсач
         public static Users USER { get; set; }
         public static Form previousForm { get; set; }
         public static string selectedItem { get; set; }
+        List<Form> openForms = new List<Form>();
+        Bitmap blackSnake = Resources.rattlesnake2;
+        Bitmap whiteSnake = Resources.rattelsnake2white;
 
         Point lastClick;
         int mx;
@@ -156,9 +160,20 @@ namespace курсач
                     }
                     else
                     {
+                        foreach (Form f in Application.OpenForms)
+                            openForms.Add(f);
+
+                        foreach (var f in openForms)
+                        {
+                            if (f.Name != "Login")
+                            {
+                                f.Close();
+                                f.Dispose();
+                            }
+                        }
+                        openForms.Clear();
                         Form3 menu = new Form3();
                         menu.Show();
-                        Close();
                     }
                 }
                 else if (Login.USER.Role == "admin")
@@ -169,9 +184,20 @@ namespace курсач
                     }
                     else
                     {
+                        foreach (Form f in Application.OpenForms)
+                            openForms.Add(f);
+
+                        foreach (var f in openForms)
+                        {
+                            if (f.Name != "Login")
+                            {
+                                f.Close();
+                                f.Dispose();
+                            }
+                        }
+                        openForms.Clear();
                         adminMenu admenu = new adminMenu();
                         admenu.Show();
-                        Close();
                     }
                 }
             }
@@ -179,12 +205,12 @@ namespace курсач
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox1.Image = Resources.rattlesnake2;
+            pictureBox1.Image = blackSnake;
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox1.Image = Resources.rattelsnake2white;
+            pictureBox1.Image = whiteSnake;
         }
 
         protected virtual void BackButton_Click(object sender, EventArgs e)
@@ -195,11 +221,6 @@ namespace курсач
             GC.WaitForPendingFinalizers();
             previousForm.Show();
             //previousForm.Visible = true;
-        }
-
-        private void basicForm_Activated(object sender, EventArgs e)
-        {
-
         }
     }
 }

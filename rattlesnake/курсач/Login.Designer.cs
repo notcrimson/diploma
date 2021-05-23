@@ -44,6 +44,7 @@
             // 
             this.panel2.Controls.Add(this.Register);
             this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.SetChildIndex(this.BackButton, 0);
             this.panel2.Controls.SetChildIndex(this.button1, 0);
             this.panel2.Controls.SetChildIndex(this.Register, 0);
             // 
@@ -51,6 +52,10 @@
             // 
             this.label1.Location = new System.Drawing.Point(0, 12);
             this.label1.Text = "Login";
+            // 
+            // BackButton
+            // 
+            this.BackButton.Visible = false;
             // 
             // label3
             // 

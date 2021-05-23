@@ -28,6 +28,7 @@ namespace курсач
                 using (var ms = new MemoryStream(student.ProfilePic))
                 {
                     pictureBox2.Image = Image.FromStream(ms);
+                    //ms.Dispose();
                 }
                 label3.Text = student.Name;
             }
@@ -42,7 +43,7 @@ namespace курсач
                 UserControl1 resultControl = new UserControl1();
                 //resultControl.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
                 resultControl.TName = result.Test_name;
-                resultControl.TDate = result.Date.ToString("dd/mm/yyyy\n" +
+                resultControl.TDate = result.Date?.ToString("dd/mm/yyyy\n" +
                     "H:mm"); ;
                 resultControl.TPercent = result.Percentage.ToString() + "%";
                 if (result.Percentage <= 100 && result.Percentage >= 90)

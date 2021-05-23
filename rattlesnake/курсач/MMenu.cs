@@ -12,7 +12,7 @@ namespace курсач
 {
     public partial class Form3 : basicForm
     {
-        
+
         public Form3()
         {
             InitializeComponent();
@@ -20,6 +20,7 @@ namespace курсач
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            BackButton.Visible = false;
             label3.Text = "Welcome back " + Login.USER.Name + "!";
             Login l = new Login();
             previousForm = l;
@@ -34,10 +35,17 @@ namespace курсач
 
         private void profile_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             Profile profile = new Profile();
             profile.Show();
+
+        }
+
+        private void VocabularyButton_Click(object sender, EventArgs e)
+        {
             this.Hide();
+            VocabularyForm vocabularyForm = new VocabularyForm();
+            vocabularyForm.Show();
         }
     }
 }

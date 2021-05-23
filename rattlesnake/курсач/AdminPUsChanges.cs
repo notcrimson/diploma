@@ -42,8 +42,8 @@ namespace курсач
                 object missing = Type.Missing;
                 Microsoft.Office.Interop.Word.Document document;
                 Microsoft.Office.Interop.Word.Application application = new Microsoft.Office.Interop.Word.Application() { Visible = false };
-                document = application.Documents.Open(fileName, missing, readOnly, missing, missing, missing, missing, missing, missing,
-                    missing, missing, visible, missing, missing, missing, missing);
+                document = application.Documents.Open(ref fileName, ref missing, ref readOnly, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing,
+                   ref missing, ref missing, ref visible, ref missing, ref missing, ref missing, ref missing);
                 document.ActiveWindow.Selection.WholeStory();
                 document.ActiveWindow.Selection.Copy();
                 IDataObject dataObject = Clipboard.GetDataObject();

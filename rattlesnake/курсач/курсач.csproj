@@ -61,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddVocabulary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVocabulary.Designer.cs">
+      <DependentUpon>AddVocabulary.cs</DependentUpon>
+    </Compile>
     <Compile Include="adminAddTests.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,7 +139,6 @@
     <Compile Include="StudentPU.Designer.cs">
       <DependentUpon>StudentPU.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\Student_profile.cs" />
     <Compile Include="model\sysdiagrams.cs" />
     <Compile Include="TestsForm.cs">
       <SubType>Form</SubType>
@@ -142,12 +147,6 @@
       <DependentUpon>TestsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\The_Test.cs" />
-    <Compile Include="Typing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Typing.Designer.cs">
-      <DependentUpon>Typing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Units.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +160,22 @@
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Users.cs" />
+    <Compile Include="model\Vocabulary.cs" />
+    <Compile Include="VocabularyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VocabularyControl.Designer.cs">
+      <DependentUpon>VocabularyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VocabularyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VocabularyForm.Designer.cs">
+      <DependentUpon>VocabularyForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddVocabulary.resx">
+      <DependentUpon>AddVocabulary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adminAddTests.resx">
       <DependentUpon>adminAddTests.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,14 +222,17 @@
     <EmbeddedResource Include="TestsForm.resx">
       <DependentUpon>TestsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Typing.resx">
-      <DependentUpon>Typing.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Units.resx">
       <DependentUpon>Units.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VocabularyControl.resx">
+      <DependentUpon>VocabularyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VocabularyForm.resx">
+      <DependentUpon>VocabularyForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Professional_unit.datasource" />
@@ -248,6 +266,14 @@
     <None Include="Resources\profile pic.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -275,6 +301,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sizer.png" />
@@ -285,5 +320,6 @@
   <ItemGroup>
     <None Include="Resources\rattlesnake2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

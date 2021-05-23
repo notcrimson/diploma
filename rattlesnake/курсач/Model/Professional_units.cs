@@ -13,6 +13,7 @@ namespace курсач
         public Professional_units()
         {
             The_Test = new HashSet<The_Test>();
+            Vocabulary = new HashSet<Vocabulary>();
         }
 
         [Key]
@@ -24,5 +25,8 @@ namespace курсач
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<The_Test> The_Test { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vocabulary> Vocabulary { get; set; }
     }
 }

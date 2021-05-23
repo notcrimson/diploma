@@ -174,7 +174,6 @@
             this.Name = "basicForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "basicForm";
-            this.Activated += new System.EventHandler(this.basicForm_Activated);
             this.Load += new System.EventHandler(this.basicForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
