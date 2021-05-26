@@ -50,7 +50,6 @@ namespace курсач
                     MessageBox.Show(ex.InnerException.InnerException.Message);
                 }
                 axWindowsMediaPlayer1.URL = Environment.CurrentDirectory.ToString() + "\\PUs\\word.mp3";
-                
             }
         }
         private void playButton_Click(object sender, EventArgs e)

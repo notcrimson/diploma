@@ -22,26 +22,29 @@ namespace курсач
         {
             Form3 menu = new Form3();
             previousForm = menu;
-            student = db.Users.Where(x => x.UserId == Login.USER.UserId && x.Role == "student").FirstOrDefault();
+
+            student = db.Users.FirstOrDefault(x => x.UserId == USER.UserId && x.Role == "student");
             if (student != null)
             {
-                using (var ms = new MemoryStream(student.ProfilePic))
+                using (MemoryStream ms = new MemoryStream(student.ProfilePic))
                 {
                     pictureBox2.Image = Image.FromStream(ms);
-                    //ms.Dispose();
+                    ms.Dispose();
                 }
                 label3.Text = student.Name;
-            }
+                student = null;
 
+            }
             GetResults();
         }
         private void GetResults()
         {
-            IQueryable<Result> results = db.Result.Where(x => x.StudentID == Login.USER.UserId).OrderByDescending(d => d.Date);
+
+
+            IQueryable<Result> results = db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date);
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();
-                //resultControl.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
                 resultControl.TName = result.Test_name;
                 resultControl.TDate = result.Date?.ToString("dd/mm/yyyy\n" +
                     "H:mm"); ;
@@ -61,6 +64,7 @@ namespace курсач
                 resultLayoutPanel.Controls.Add(resultControl);
             }
             results = null;
+
         }
 
         private void Profile_FormClosed(object sender, FormClosedEventArgs e)

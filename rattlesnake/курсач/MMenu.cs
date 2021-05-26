@@ -12,7 +12,6 @@ namespace курсач
 {
     public partial class Form3 : basicForm
     {
-
         public Form3()
         {
             InitializeComponent();
@@ -21,9 +20,11 @@ namespace курсач
         private void Form3_Load(object sender, EventArgs e)
         {
             BackButton.Visible = false;
-            label3.Text = "Welcome back " + Login.USER.Name + "!";
-            Login l = new Login();
-            previousForm = l;
+            //label3.Text = "Welcome back " + USER.Name + "!";
+            //using (Login l = new Login())
+            //{
+            //    previousForm = l;
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)

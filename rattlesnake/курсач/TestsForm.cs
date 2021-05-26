@@ -280,7 +280,7 @@ namespace курсач
                 Result r = new Result();
                 r.Test_name = listOfTests.testName;
                 r.Answers = k;
-                r.StudentID = Login.USER.UserId;
+                r.StudentID = USER.UserId;
                 r.Percentage = (int)Math.Round(percent);
                 r.Date = DateTime.Now;
                 db.Result.Add(r);

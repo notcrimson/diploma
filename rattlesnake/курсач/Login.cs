@@ -20,7 +20,7 @@ namespace курсач
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            previousForm = null;
+            //previousForm = null;
             usr = null;
             USER = null;
             textBox1.Text = "test";
@@ -30,7 +30,7 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-             usr = db.Users.Where(x => x.Login == textBox1.Text).FirstOrDefault();
+            usr = db.Users.Where(x => x.Login == textBox1.Text).FirstOrDefault();
 
             //var linq = from users in db.Users
             //           where users.Login == textBox1.Text
@@ -52,6 +52,7 @@ namespace курсач
                 }
                 else if (usr.Role == "student")
                 {
+                    usr = null;
                     this.Hide();
                     //this.Visible = false;
                     Form3 menu = new Form3();

@@ -72,7 +72,7 @@ namespace курсач
                     if (dr == DialogResult.OK)
                     {
                         Form3 menu = new Form3();
-                        Login.USER = usr;
+                        USER = usr;
                         menu.Show();
                         this.Hide();
                     }

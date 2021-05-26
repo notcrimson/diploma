@@ -22,9 +22,9 @@ namespace курсач
             Units un = new Units();
             previousForm = un;
 
-            label1.Text = selectedItem;
+            label1.Text = selectedPU;
             string contentString;
-            Professional_units pr = db.Professional_units.Find(selectedItem);
+            Professional_units pr = db.Professional_units.Find(selectedPU);
             if (pr != null)
             {
                 contentString = Encoding.ASCII.GetString(pr.ContentOfPU);

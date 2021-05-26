@@ -32,6 +32,15 @@ namespace курсач
                 //vocabularyControl.pronuns = word.Pronunciation;
                 vocabularyLayoutPanel.Controls.Add(vocabularyControl);
             }
+            vocabulary.Clear();
+        }
+
+        private void VocabularyForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //foreach (Control c in vocabularyLayoutPanel.Controls)
+            //{
+            //    c.Dispose();
+            //}
         }
     }
 }

@@ -22,7 +22,7 @@ namespace курсач
             BackButton.Visible = false;
             Login login = new Login();
             previousForm = login;
-            label3.Text = "Welcome back " + Login.USER.Name + "!";
+            label3.Text = "Welcome back " + USER.Name + "!";
         }
         private void addPu_Click(object sender, EventArgs e)
         {

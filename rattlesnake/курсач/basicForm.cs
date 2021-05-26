@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using курсач.Properties;
+using rattlesnake.Properties;
 using System.IO;
 
 namespace курсач
 {
     public partial class basicForm : Form
     {
-        public static Model1 db = new Model1();
-        public static Users USER { get; set; }
-        public static Form previousForm { get; set; }
-        public static string selectedItem { get; set; }
+        public Model1 db = new Model1();
+        public  static Users USER { get; set; }
+        public  Form previousForm { get; set; }
+        public string selectedPU { get; set; }
         List<Form> openForms = new List<Form>();
         Bitmap blackSnake = Resources.rattlesnake2;
         Bitmap whiteSnake = Resources.rattelsnake2white;
@@ -93,11 +93,11 @@ namespace курсач
         }
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastClick.X;
-                this.Top += e.Y - lastClick.Y;
-            }
+            //if (e.Button == MouseButtons.Left)
+            //{
+            //    this.Left += e.X - lastClick.X;
+            //    this.Top += e.Y - lastClick.Y;
+            //}
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -139,11 +139,6 @@ namespace курсач
             move = false;
         }
 
-        private void sizer_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (this is Login || this is Register)
@@ -152,7 +147,7 @@ namespace курсач
             }
             else
             {
-                if (Login.USER.Role == "student")
+                if (USER.Role == "student")
                 {
                     if (this is Form3)
                     {
@@ -176,7 +171,7 @@ namespace курсач
                         menu.Show();
                     }
                 }
-                else if (Login.USER.Role == "admin")
+                else if (USER.Role == "admin")
                 {
                     if (this is adminMenu)
                     {
@@ -219,6 +214,7 @@ namespace курсач
             Close();
             GC.Collect();
             GC.WaitForPendingFinalizers();
+            GC.Collect();
             previousForm.Show();
             //previousForm.Visible = true;
         }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "курсач", "курсач\курсач.csproj", "{B56AF33B-1CDF-4F56-A095-09189AD6D34F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RattleSnake", "курсач\RattleSnake.csproj", "{B56AF33B-1CDF-4F56-A095-09189AD6D34F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -232,7 +232,7 @@ namespace курсач
 
             The_Test tca = new The_Test();
             tca.Test_name = label1.Text;
-            tca.Name_of_PU = selectedItem;
+            tca.Name_of_PU = selectedPU;
             string k2 = "";
             List<string> answers = new List<string>();
             foreach (Panel p in flowLayoutPanel1.Controls)

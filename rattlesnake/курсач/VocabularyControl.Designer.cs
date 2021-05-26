@@ -40,7 +40,7 @@ namespace курсач
             // wordTextbox
             // 
             this.wordTextbox.AutoSize = true;
-            this.wordTextbox.Location = new System.Drawing.Point(24, 18);
+            this.wordTextbox.Location = new System.Drawing.Point(12, 45);
             this.wordTextbox.Name = "wordTextbox";
             this.wordTextbox.Size = new System.Drawing.Size(58, 22);
             this.wordTextbox.TabIndex = 0;
@@ -48,17 +48,16 @@ namespace курсач
             // 
             // definitionTextbox
             // 
-            this.definitionTextbox.AutoSize = true;
-            this.definitionTextbox.Location = new System.Drawing.Point(185, 18);
+            this.definitionTextbox.Location = new System.Drawing.Point(154, 9);
             this.definitionTextbox.Name = "definitionTextbox";
-            this.definitionTextbox.Size = new System.Drawing.Size(94, 22);
+            this.definitionTextbox.Size = new System.Drawing.Size(424, 98);
             this.definitionTextbox.TabIndex = 1;
             this.definitionTextbox.Text = "Definition";
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(611, 9);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(613, 72);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(37, 35);
@@ -67,7 +66,7 @@ namespace курсач
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(516, 13);
+            this.playButton.Location = new System.Drawing.Point(584, 24);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(89, 31);
             this.playButton.TabIndex = 3;
@@ -79,6 +78,7 @@ namespace курсач
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.definitionTextbox);
@@ -87,7 +87,7 @@ namespace курсач
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "VocabularyControl";
-            this.Size = new System.Drawing.Size(671, 56);
+            this.Size = new System.Drawing.Size(676, 118);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

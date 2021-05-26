@@ -21,12 +21,12 @@ namespace курсач
 
         private void Units_Load(object sender, EventArgs e)
         {
-            if (Login.USER.Role == "student")
+            if (USER.Role == "student")
             {
                 Form3 menu = new Form3();
                 previousForm = menu;
             }
-            else if (Login.USER.Role == "admin")
+            else if (USER.Role == "admin")
             {
                 adminMenu adminMenu = new adminMenu();
                 previousForm = adminMenu;
@@ -46,12 +46,12 @@ namespace курсач
         {
             if (listBox1.SelectedItem != null)
             {
-                selectedItem = listBox1.SelectedItem.ToString();
-                if(Login.USER.Role == "student")
+                selectedPU = listBox1.SelectedItem.ToString();
+                if(USER.Role == "student")
                 {
                     panel3.Visible = true;
                 }
-                else if (Login.USER.Role == "admin")
+                else if (USER.Role == "admin")
                 {
                     panel5.Visible = true;
                 }

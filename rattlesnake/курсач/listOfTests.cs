@@ -26,7 +26,7 @@ namespace курсач
             previousForm = u;
 
             var queryOftests = from t in db.The_Test
-                               where t.Name_of_PU == selectedItem
+                               where t.Name_of_PU == selectedPU
                                select t.Test_name;
 
             
@@ -34,7 +34,7 @@ namespace курсач
             listBox1.Items.Add(queryOftests.ToList()[0]);
             foreach (var test in queryOftests.ToList().Skip(1))
             {
-                var passedTest = db.Result.Where(x => x.StudentID == Login.USER.UserId && x.Test_name == previouseItem && x.Percentage >= 90).FirstOrDefault();
+                var passedTest = db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == previouseItem && x.Percentage >= 90).FirstOrDefault();
                 if (passedTest != null)
                 {
                     listBox1.Items.Add(test);
