@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using rattlesnake.Properties;
+using курсач.Properties;
 using System.IO;
 
 namespace курсач
@@ -15,12 +15,13 @@ namespace курсач
     public partial class basicForm : Form
     {
         public Model1 db = new Model1();
-        public  static Users USER { get; set; }
-        public  Form previousForm { get; set; }
-        public string selectedPU { get; set; }
+        public static Users USER { get; set; }
+        public static Form previousForm { get; set; }
+        public static string selectedPU { get; set; }
         List<Form> openForms = new List<Form>();
         Bitmap blackSnake = Resources.rattlesnake2;
         Bitmap whiteSnake = Resources.rattelsnake2white;
+        public Form _prevForm { get; set; }
 
         Point lastClick;
         int mx;
@@ -90,14 +91,6 @@ namespace курсач
         {
             lastClick = e.Location;
             Cursor.Current = Cursors.SizeAll;
-        }
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Left)
-            //{
-            //    this.Left += e.X - lastClick.X;
-            //    this.Top += e.Y - lastClick.Y;
-            //}
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -210,11 +203,14 @@ namespace курсач
 
         protected virtual void BackButton_Click(object sender, EventArgs e)
         {
+            previousForm = _prevForm; 
+            
             Dispose();
-            Close();
+
             GC.Collect();
             GC.WaitForPendingFinalizers();
             GC.Collect();
+            this.Close();
             previousForm.Show();
             //previousForm.Visible = true;
         }

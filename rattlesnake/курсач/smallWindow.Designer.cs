@@ -58,12 +58,12 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 64);
+            this.label2.Location = new System.Drawing.Point(33, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 22);
+            this.label2.Size = new System.Drawing.Size(345, 42);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // circularProgressBar1
             // 
@@ -127,7 +127,6 @@
             this.Load += new System.EventHandler(this.smallWindow_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

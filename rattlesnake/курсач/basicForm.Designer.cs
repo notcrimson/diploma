@@ -57,12 +57,11 @@
             this.panel1.Size = new System.Drawing.Size(1008, 85);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::rattlesnake.Properties.Resources.rattelsnake2white;
+            this.pictureBox1.Image = global::курсач.Properties.Resources.rattelsnake2white;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 79);
@@ -146,7 +145,7 @@
             // sizer
             // 
             this.sizer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.sizer.Image = global::rattlesnake.Properties.Resources.sizer;
+            this.sizer.Image = global::курсач.Properties.Resources.sizer;
             this.sizer.Location = new System.Drawing.Point(992, 33);
             this.sizer.Name = "sizer";
             this.sizer.Size = new System.Drawing.Size(16, 17);

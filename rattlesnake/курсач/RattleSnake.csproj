@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B56AF33B-1CDF-4F56-A095-09189AD6D34F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>rattlesnake</RootNamespace>
-    <AssemblyName>rattlesnake</AssemblyName>
+    <RootNamespace>курсач</RootNamespace>
+    <AssemblyName>курсач</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

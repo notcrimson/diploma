@@ -20,7 +20,7 @@ namespace курсач
         private void VocabularyForm_Load(object sender, EventArgs e)
         {
             Form3 Mmenu = new Form3();
-            previousForm = Mmenu;
+            _prevForm = Mmenu;
 
             List<Vocabulary> vocabulary = db.Vocabulary.ToList();
             foreach (var word in vocabulary)

@@ -88,7 +88,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::rattlesnake.Properties.Resources.profile_pic;
+            this.pictureBox2.Image = global::курсач.Properties.Resources.profile_pic;
             this.pictureBox2.Location = new System.Drawing.Point(45, 27);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(161, 164);
@@ -125,7 +125,6 @@
             this.Controls.Add(this.resultLayoutPanel);
             this.Name = "Profile";
             this.Text = "Profile";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Profile_FormClosed);
             this.Load += new System.EventHandler(this.Profile_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);

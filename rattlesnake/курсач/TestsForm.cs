@@ -14,7 +14,7 @@ namespace курсач
 {
     public partial class TestsForm : basicForm
     {
-        public static Form testForm = new Form();
+        //public static Form testForm = new Form();
         List<string> multipleAnswers = new List<string>();
         List<string> seperatedAnswer = new List<string>();
         public static float percent;
@@ -28,8 +28,6 @@ namespace курсач
 
         private void Tests_Load(object sender, EventArgs e)
         {
-
-
             //List<object> lmao = new List<object>();
             //var quer = from paa in db.Tests
             //           where paa.Test_name == "kek2"
@@ -41,16 +39,13 @@ namespace курсач
             //testBindingSource.DataSource = lmao;
 
             listOfTests l = new listOfTests();
-            previousForm = l;
+            _prevForm = l;
 
 
             label1.Text = listOfTests.testName;
             int a = 0;
             int b = 0;
             int j = panel3.Location.X;
-
-
-
 
 
             var queryForAns = from testAnswers in db.Questions
@@ -107,8 +102,7 @@ namespace курсач
                 Panel gp = new Panel();
                 gp.Name = "questionPanel" + i.ToString();
                 gp.Location = new Point(panel3.Location.X, j);
-                gp.Leave += Gp_Leave;
-                gp.Enter += Gp_Enter;
+                
                 gp.BorderStyle = panel3.BorderStyle;
                 gp.BackColor = panel3.BackColor;
                 gp.Size = panel3.Size;
@@ -130,7 +124,7 @@ namespace курсач
                     rd.Location = new Point(radioButton2.Location.X, answerY);
                     rd.BackColor = radioButton2.BackColor;
                     rd.AutoSize = true;
-                    rd.CheckedChanged += Rd_CheckedChanged;
+
                     rd.Text = sepp[a];
                     a++;
                     answerY += 53;
@@ -163,24 +157,7 @@ namespace курсач
 
             }
         }
-
-        private void Gp_Enter(object sender, EventArgs e)
-        {
-            //Panel activePanel = sender as Panel;
-            //MessageBox.Show(activePanel.Name);
-            //activePanelll = activePanel;
-        }
-
-        private void Gp_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Rd_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void finishTest_Click(object sender, EventArgs e)
         {
             float correct = 0;
@@ -228,7 +205,7 @@ namespace курсач
             }
             if (answers.Count == seperatedAnswer.Count)
             {
-                testForm = this;
+                //testForm = this;
                 foreach (Panel p in flowLayoutPanel1.Controls)
                 {
                     foreach (Control c in p.Controls)

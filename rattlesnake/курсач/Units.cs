@@ -24,12 +24,12 @@ namespace курсач
             if (USER.Role == "student")
             {
                 Form3 menu = new Form3();
-                previousForm = menu;
+                _prevForm = menu;
             }
             else if (USER.Role == "admin")
             {
                 adminMenu adminMenu = new adminMenu();
-                previousForm = adminMenu;
+                _prevForm = adminMenu;
             }
            
 
@@ -60,25 +60,28 @@ namespace курсач
 
         private void OpenPU_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            //listBox1.Items.Clear();
+            Close();
             StudentPU sPU = new StudentPU();
             sPU.Show();
-            this.Hide();
+            
         }       
 
         private void Write_a_test_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            //listBox1.Items.Clear();
+            Close();
             listOfTests test = new listOfTests();
             test.Show();
-            Hide();
+            
         }
         private void addTest_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            //listBox1.Items.Clear();
+            Close();
             adminAddTests a = new adminAddTests();
             a.Show();
-            Hide();
+            
         } 
         private void Units_Resize(object sender, EventArgs e)
         {
@@ -91,5 +94,9 @@ namespace курсач
             //listBox1.Location = new Point(locx2, locy2);
         }
 
+        private void Units_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

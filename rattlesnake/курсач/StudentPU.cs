@@ -20,7 +20,7 @@ namespace курсач
         private void StudentPU_Load(object sender, EventArgs e)
         {
             Units un = new Units();
-            previousForm = un;
+            _prevForm = un;
 
             label1.Text = selectedPU;
             string contentString;
@@ -30,6 +30,7 @@ namespace курсач
                 contentString = Encoding.ASCII.GetString(pr.ContentOfPU);
                 richTextBox1.Rtf = contentString;
             }
+            contentString = null;
         }
     }
 }

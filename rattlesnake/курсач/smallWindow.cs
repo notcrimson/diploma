@@ -43,14 +43,28 @@ namespace курсач
             DialogResult dr = MessageBox.Show("Press OK if you want to see what you got wrong", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dr == DialogResult.OK)
             {
+                Dispose();
                 this.Close();
             }
             else
             {
-                TestsForm.testForm.Close();
-                Profile profile = new Profile();
-                profile.Show();
-                Close();
+                List<Form> openForms = new List<Form>();
+                foreach (Form f in Application.OpenForms)
+                    openForms.Add(f);
+
+                foreach (var f in openForms)
+                {
+                    if (f.Name != "Login")
+                    {
+                        f.Close();
+                        f.Dispose();
+                    }
+                }
+                openForms.Clear();
+                //TestsForm.testForm.Close();
+                Form3 MMenu = new Form3();
+                MMenu.Show();
+                //Close();
                 //foreach (Form f in Application.OpenForms)
                 //{
                 //    if (f.Name != "Form3" || f.Name != "Login" || f.Name != "basicForm")

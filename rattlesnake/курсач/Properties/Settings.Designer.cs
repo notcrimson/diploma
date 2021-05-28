@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace rattlesnake.Properties {
+namespace курсач.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

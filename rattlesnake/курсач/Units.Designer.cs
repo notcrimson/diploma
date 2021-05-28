@@ -139,6 +139,7 @@
             this.Controls.Add(this.panel4);
             this.Name = "Units";
             this.Text = "Units";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Units_FormClosed);
             this.Load += new System.EventHandler(this.Units_Load);
             this.Resize += new System.EventHandler(this.Units_Resize);
             this.Controls.SetChildIndex(this.panel1, 0);

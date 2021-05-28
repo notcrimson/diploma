@@ -21,7 +21,7 @@ namespace курсач
         private void Profile_Load(object sender, EventArgs e)
         {
             Form3 menu = new Form3();
-            previousForm = menu;
+            _prevForm = menu;
 
             student = db.Users.FirstOrDefault(x => x.UserId == USER.UserId && x.Role == "student");
             if (student != null)
@@ -39,8 +39,6 @@ namespace курсач
         }
         private void GetResults()
         {
-
-
             IQueryable<Result> results = db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date);
             foreach (var result in results)
             {
@@ -67,11 +65,6 @@ namespace курсач
 
         }
 
-        private void Profile_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Dispose();
-            student = null;
-        }
         //protected override void BackButton_Click(object sender, EventArgs e)
         //{
         //    Close();

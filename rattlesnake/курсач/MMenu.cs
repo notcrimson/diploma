@@ -19,8 +19,9 @@ namespace курсач
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            int fff = Application.OpenForms.Count;
             BackButton.Visible = false;
-            //label3.Text = "Welcome back " + USER.Name + "!";
+            label3.Text = "Welcome back " + USER.Name + "!";
             //using (Login l = new Login())
             //{
             //    previousForm = l;
@@ -29,14 +30,14 @@ namespace курсач
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Units pu = new Units();
             pu.Show();
         }
 
         private void profile_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Profile profile = new Profile();
             profile.Show();
 
@@ -44,9 +45,14 @@ namespace курсач
 
         private void VocabularyButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             VocabularyForm vocabularyForm = new VocabularyForm();
             vocabularyForm.Show();
+        }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
