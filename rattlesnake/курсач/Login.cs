@@ -32,17 +32,13 @@ namespace курсач
         {
             usr = db.Users.Where(x => x.Login == textBox1.Text).FirstOrDefault();
 
-            //var linq = from users in db.Users
-            //           where users.Login == textBox1.Text
-            //           select users;
-
-            //Users usr = linq.FirstOrDefault();
 
             if ((usr != null) && (usr.Password == textBox2.Text))
             {
                 USER = usr;
                 if (usr.Role == "admin")
                 {
+                    // WRITE CODE FOR SAVED USER SETTINGS AND FORMS
                     this.Hide();
                     //this.Visible = false;
                     adminMenu admin = new adminMenu();

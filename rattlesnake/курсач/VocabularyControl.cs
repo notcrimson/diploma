@@ -73,5 +73,15 @@ namespace курсач
             vocabcont = sender as Control;
             PlayWord(word);
         }
+
+        private void Control_MouseHover(object sender, EventArgs e)
+        {
+                BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void Control_MouseLeave(object sender, EventArgs e)
+        {
+            BorderStyle = BorderStyle.None;
+        }
     }
 }

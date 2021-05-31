@@ -18,6 +18,7 @@ namespace курсач
         public static Users USER { get; set; }
         public static Form previousForm { get; set; }
         public static string selectedPU { get; set; }
+        public static string testName { get; set; }
         List<Form> openForms = new List<Form>();
         Bitmap blackSnake = Resources.rattlesnake2;
         Bitmap whiteSnake = Resources.rattelsnake2white;
@@ -66,6 +67,34 @@ namespace курсач
             DialogResult res = MessageBox.Show("Are you sure you want to exit", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {
+
+                User_Log existingLog = db.User_Log.Where(x => x.UserID == USER.UserId).FirstOrDefault();
+                //User_Log existingLog = db.User_Log.Find(2);
+                User_Log log = new User_Log();
+                if (existingLog == null)
+                {
+                    //return; 
+                    log.UserID = USER.UserId;
+                    log.LastFormUsed = this.Name.ToString();
+                    db.User_Log.Add(log);
+                }
+                else
+                {
+                    existingLog.LastFormUsed = this.Name.ToString();
+                    //db.Entry(existingLog).CurrentValues.SetValues(log);
+                }
+                
+                try
+                {
+                    db.SaveChanges();
+                    Properties.Settings.Default.selectedPu = selectedPU;
+                    Properties.Settings.Default.testName = testName;
+                    Properties.Settings.Default.Save();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.InnerException.InnerException.Message);
+                }
                 Application.Exit();
             }
         }
@@ -203,8 +232,8 @@ namespace курсач
 
         protected virtual void BackButton_Click(object sender, EventArgs e)
         {
-            previousForm = _prevForm; 
-            
+            previousForm = _prevForm;
+
             Dispose();
 
             GC.Collect();

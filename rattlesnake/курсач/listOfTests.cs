@@ -13,7 +13,6 @@ namespace курсач
 {
     public partial class listOfTests : basicForm
     {
-        public static string testName;
         public listOfTests()
         {
             InitializeComponent();

@@ -22,5 +22,29 @@ namespace курсач.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string selectedPu {
+            get {
+                return ((string)(this["selectedPu"]));
+            }
+            set {
+                this["selectedPu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string testName {
+            get {
+                return ((string)(this["testName"]));
+            }
+            set {
+                this["testName"] = value;
+            }
+        }
     }
 }

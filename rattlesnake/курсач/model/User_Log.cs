@@ -8,7 +8,6 @@ namespace курсач
 
     public partial class User_Log
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         public int UserID { get; set; }

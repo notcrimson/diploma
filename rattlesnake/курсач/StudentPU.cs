@@ -22,6 +22,9 @@ namespace курсач
             Units un = new Units();
             _prevForm = un;
 
+            if (selectedPU == null)
+                selectedPU = Properties.Settings.Default.selectedPu;
+
             label1.Text = selectedPU;
             string contentString;
             Professional_units pr = db.Professional_units.Find(selectedPU);

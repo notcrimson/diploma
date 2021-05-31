@@ -168,6 +168,12 @@
     <Compile Include="Units.Designer.cs">
       <DependentUpon>Units.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Users.cs" />
     <Compile Include="model\User_Log.cs" />
     <Compile Include="model\Vocabulary.cs" />
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Units.resx">
       <DependentUpon>Units.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VocabularyControl.resx">
       <DependentUpon>VocabularyControl.cs</DependentUpon>

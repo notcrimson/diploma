@@ -44,7 +44,7 @@ namespace курсач
                 hideBtn.UseVisualStyleBackColor = true;
                 puGroup.Controls.Add(hideBtn);
 
-                int y = 30;
+                int y = 50;
                 foreach (var word in vocabulary)
                 {
                     if (word.PU_Name == pu)

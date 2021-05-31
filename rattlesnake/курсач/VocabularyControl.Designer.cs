@@ -58,16 +58,17 @@ namespace курсач
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(774, 57);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(826, 85);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(37, 35);
             this.axWindowsMediaPlayer1.TabIndex = 2;
+            this.axWindowsMediaPlayer1.Visible = false;
             this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(745, 20);
+            this.playButton.Location = new System.Drawing.Point(750, 48);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(89, 31);
             this.playButton.TabIndex = 3;
@@ -89,6 +90,8 @@ namespace курсач
             this.Name = "VocabularyControl";
             this.Size = new System.Drawing.Size(866, 120);
             this.Enter += new System.EventHandler(this.VocabularyControl_Enter);
+            this.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.Control_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
