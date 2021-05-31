@@ -71,14 +71,6 @@
             this.panel2.Controls.SetChildIndex(this.addTest, 0);
             this.panel2.Controls.SetChildIndex(this.deleteQ, 0);
             // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(1117, -1);
-            // 
-            // fHide
-            // 
-            this.fHide.Location = new System.Drawing.Point(1089, -3);
-            // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(255, 11);

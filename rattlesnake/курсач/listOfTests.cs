@@ -14,7 +14,6 @@ namespace курсач
     public partial class listOfTests : basicForm
     {
         public static string testName;
-        public static bool finishedPU;
         public listOfTests()
         {
             InitializeComponent();
@@ -29,7 +28,6 @@ namespace курсач
                                where t.Name_of_PU == selectedPU
                                select t.Test_name;
 
-            
             string previouseItem = queryOftests.ToList()[0];
             listBox1.Items.Add(queryOftests.ToList()[0]);
             foreach (var test in queryOftests.ToList().Skip(1))
@@ -45,19 +43,6 @@ namespace курсач
                     listBox1.Items.Add("🔒" + test);
                     previouseItem = test;
                 }
-            }
-
-            int j = 0;
-            foreach (string testInList in listBox1.Items)
-            {
-                if (Regex.IsMatch(testInList, @"🔒"))
-                {
-                    j++;
-                }
-            }
-            if (j == 0)
-            {
-                finishedPU = true;
             }
         }
 

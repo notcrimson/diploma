@@ -12,6 +12,7 @@ namespace курсач
         public Users()
         {
             Result = new HashSet<Result>();
+            User_Log = new HashSet<User_Log>();
         }
 
         [Key]
@@ -37,5 +38,8 @@ namespace курсач
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Result> Result { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User_Log> User_Log { get; set; }
     }
 }

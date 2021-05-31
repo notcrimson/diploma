@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace курсач
 {
     public partial class Units : basicForm
     {
-        //public Professional_unit PU {get;set;}
         public Units()
         {
 
@@ -25,64 +25,97 @@ namespace курсач
             {
                 Form3 menu = new Form3();
                 _prevForm = menu;
+
+
+                List<string> profUnits = db.Professional_units.Select(x => x.Name_of_PU).ToList();
+                listBox1.Items.Add(profUnits[0]);
+                foreach (var profUnit in profUnits.ToList().Skip(1))
+                {
+                    bool finishedPU = false;
+                    int j = 0;
+                    var queryOftests = from t in db.The_Test
+                                       where t.Name_of_PU == profUnit
+                                       select t.Test_name;
+
+                    foreach (var test in queryOftests)
+                    {
+                        Result passedTest = db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test && x.Percentage >= 90).FirstOrDefault();
+                        if (passedTest != null)
+                            continue;
+                        else
+                            j++;
+                    }
+                    queryOftests.ToList().Clear(); // clearing memory
+
+                    if (j == 0)
+                        finishedPU = true;
+
+                    if (finishedPU)
+                        listBox1.Items.Add(profUnit);
+                    else
+                        listBox1.Items.Add("🔒 " + profUnit);
+                }
+                profUnits.Clear(); // clearing memory
+
             }
             else if (USER.Role == "admin")
             {
                 adminMenu adminMenu = new adminMenu();
                 _prevForm = adminMenu;
+                var pus = from p in db.Professional_units
+                          select new { p.Name_of_PU };
+                foreach (var Pu in pus)
+                {
+                    listBox1.Items.Add(Pu.Name_of_PU);
+                }
+                pus = null;
             }
-           
-
-            var pus = from p in db.Professional_units
-                      select new { p.Name_of_PU };
-            foreach (var Pu in pus)
-            {
-                listBox1.Items.Add(Pu.Name_of_PU);
-            }
-            pus = null;
         }
 
         private void listBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem != null)
             {
-                selectedPU = listBox1.SelectedItem.ToString();
-                if(USER.Role == "student")
+                if (USER.Role == "student")
                 {
-                    panel3.Visible = true;
+                    if (Regex.IsMatch(listBox1.SelectedItem.ToString(), @"🔒"))
+                        panel3.Visible = false;
+                    else
+                    {
+                        panel3.Visible = true;
+                        selectedPU = listBox1.SelectedItem.ToString();
+                    }
                 }
                 else if (USER.Role == "admin")
                 {
                     panel5.Visible = true;
+                    selectedPU = listBox1.SelectedItem.ToString();
                 }
             }
         }
 
         private void OpenPU_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Clear();
             Close();
             StudentPU sPU = new StudentPU();
             sPU.Show();
-            
-        }       
+
+        }
 
         private void Write_a_test_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Clear();
             Close();
             listOfTests test = new listOfTests();
             test.Show();
-            
+
         }
         private void addTest_Click(object sender, EventArgs e)
         {
-            //listBox1.Items.Clear();
             Close();
             adminAddTests a = new adminAddTests();
             a.Show();
-            
-        } 
+
+        }
         private void Units_Resize(object sender, EventArgs e)
         {
             //int locx = (flowLayoutPanel1.Width) / 2 - (panel3.Width / 2);

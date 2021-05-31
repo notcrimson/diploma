@@ -23,7 +23,7 @@ namespace курсач
         private void AddVocabulary_Load(object sender, EventArgs e)
         {
             adminMenu admenu = new adminMenu();
-            previousForm = admenu;
+            _prevForm = admenu;
             var puQuery = from pus in db.Professional_units
                           select pus.Name_of_PU;
             foreach (var pu in puQuery)

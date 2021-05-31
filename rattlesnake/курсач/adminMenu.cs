@@ -20,27 +20,25 @@ namespace курсач
         private void adminMenu_Load(object sender, EventArgs e)
         {
             BackButton.Visible = false;
-            Login login = new Login();
-            previousForm = login;
             label3.Text = "Welcome back " + USER.Name + "!";
         }
         private void addPu_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             AdminPUsChanges apc = new AdminPUsChanges();
             apc.Show();
         }
 
         private void addTest_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             Units un = new Units();
             un.Show();
         }
 
         private void addVocabulary_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             AddVocabulary addVocabularyForm = new AddVocabulary();
             addVocabularyForm.Show();
         }

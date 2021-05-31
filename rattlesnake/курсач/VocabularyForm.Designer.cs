@@ -40,10 +40,13 @@ namespace курсач
             // 
             // vocabularyLayoutPanel
             // 
+            this.vocabularyLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.vocabularyLayoutPanel.AutoScroll = true;
-            this.vocabularyLayoutPanel.Location = new System.Drawing.Point(56, 122);
+            this.vocabularyLayoutPanel.Location = new System.Drawing.Point(45, 121);
             this.vocabularyLayoutPanel.Name = "vocabularyLayoutPanel";
-            this.vocabularyLayoutPanel.Size = new System.Drawing.Size(895, 351);
+            this.vocabularyLayoutPanel.Size = new System.Drawing.Size(914, 402);
             this.vocabularyLayoutPanel.TabIndex = 2;
             // 
             // VocabularyForm
@@ -54,7 +57,6 @@ namespace курсач
             this.Controls.Add(this.vocabularyLayoutPanel);
             this.Name = "VocabularyForm";
             this.Text = "VocabularyForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VocabularyForm_FormClosed);
             this.Load += new System.EventHandler(this.VocabularyForm_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);

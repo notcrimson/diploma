@@ -24,7 +24,7 @@ namespace курсач
         private void PUPDFfile_Load(object sender, EventArgs e)
         {
             adminMenu am = new adminMenu();
-            previousForm = am;
+            _prevForm = am;
         }
 
         private void button1_Click(object sender, EventArgs e)

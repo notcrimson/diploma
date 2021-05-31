@@ -19,13 +19,8 @@ namespace курсач
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            int fff = Application.OpenForms.Count;
             BackButton.Visible = false;
             label3.Text = "Welcome back " + USER.Name + "!";
-            //using (Login l = new Login())
-            //{
-            //    previousForm = l;
-            //}
         }
 
         private void button2_Click(object sender, EventArgs e)

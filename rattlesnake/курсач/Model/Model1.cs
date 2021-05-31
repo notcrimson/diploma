@@ -17,6 +17,7 @@ namespace курсач
         public virtual DbSet<Result> Result { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<The_Test> The_Test { get; set; }
+        public virtual DbSet<User_Log> User_Log { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Vocabulary> Vocabulary { get; set; }
 
@@ -77,6 +78,14 @@ namespace курсач
                 .WithRequired(e => e.The_Test)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<User_Log>()
+                .Property(e => e.LastFormUsed)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User_Log>()
+                .Property(e => e.Coordinate)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Users>()
                 .Property(e => e.Login)
                 .IsUnicode(false);
@@ -97,6 +106,11 @@ namespace курсач
                 .HasMany(e => e.Result)
                 .WithOptional(e => e.Users)
                 .HasForeignKey(e => e.StudentID);
+
+            modelBuilder.Entity<Users>()
+                .HasMany(e => e.User_Log)
+                .WithRequired(e => e.Users)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Vocabulary>()
                 .Property(e => e.PU_Name)

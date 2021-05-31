@@ -12,14 +12,11 @@ namespace курсач
 {
     public partial class adminAddTests : basicForm
     {
-        public int j;
-        public int spaceBetweenQ;
-        public int ind = 1;
-        public int panelNumber = 1;
-        public string panelN;
-        public string panelPossibleAnswerName;
-        public string panelToDelete;
-        public Control pp;
+        int j;
+        int spaceBetweenQ;
+        int panelNumber = 1;
+        string panelN;
+        Control pp;
         public adminAddTests()
         {
             InitializeComponent();
@@ -29,7 +26,7 @@ namespace курсач
         {
             ActiveControl = textBox3;
             Units am = new Units();
-            previousForm = am;
+            _prevForm = am;
             j = panel0.Location.Y;
             spaceBetweenQ = textBox2.Location.Y + 50;
             addQues();

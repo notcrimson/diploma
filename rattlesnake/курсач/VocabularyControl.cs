@@ -13,7 +13,7 @@ namespace курсач
 {
     public partial class VocabularyControl : UserControl
     {
-        public static bool playing;
+        public Control vocabcont { get; set; }
         public VocabularyControl()
         {
             InitializeComponent();
@@ -34,14 +34,11 @@ namespace курсач
             set { axWindowsMediaPlayer1.URL = value; }
         }
         public Vocabulary word { get; set; }
-        //public byte[] pronuns { get; set; }
         public void PlayWord(Vocabulary word)
         {
-            //axWindowsMediaPlayer1.URL = null;
-            if ((word != null) && (word.Pronunciation != null) /*&& !playing*/)
+            if ((word != null) && (word.Pronunciation != null))
             {
-                //File.Delete("C:\\song.mp3");
-                /* a:*/
+                //a:
                 try
                 {
                     File.WriteAllBytes(Environment.CurrentDirectory.ToString() + "\\PUs\\word.mp3", word.Pronunciation);
@@ -56,23 +53,25 @@ namespace курсач
         }
         private void playButton_Click(object sender, EventArgs e)
         {
-            PlayWord(word);
-            //playing = true;
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-            
+            Control btn = sender as Control;
+            if (btn.Parent == vocabcont)
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            else
+                PlayWord(word);
         }
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if (e.newState != 3)
-            {
-                //playing = true;
-            }
             if ((WMPLib.WMPPlayState)e.newState == WMPLib.WMPPlayState.wmppsMediaEnded)
             {
-                //playing = false;
                 axWindowsMediaPlayer1.close();
             }
+        }
+
+        private void VocabularyControl_Enter(object sender, EventArgs e)
+        {
+            vocabcont = sender as Control;
+            PlayWord(word);
         }
     }
 }
