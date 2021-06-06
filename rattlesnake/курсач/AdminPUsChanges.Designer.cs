@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.addPU = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,6 +118,5 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button addPU;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Timer timer1;
     }
 }

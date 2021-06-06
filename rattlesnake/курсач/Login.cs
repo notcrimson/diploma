@@ -30,37 +30,43 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            usr = db.Users.Where(x => x.Login == textBox1.Text).FirstOrDefault();
-
+            usr = db.Users.FirstOrDefault(x => x.Login == textBox1.Text);
 
             if ((usr != null) && (usr.Password == textBox2.Text))
             {
                 USER = usr;
-                if (usr.Role == "admin")
+                User_Log adminLog = db.User_Log.FirstOrDefault(x => x.UserID == USER.UserId);
+
+                if (adminLog == null)
                 {
-                    // WRITE CODE FOR SAVED USER SETTINGS AND FORMS
-                    this.Hide();
-                    //this.Visible = false;
-                    adminMenu admin = new adminMenu();
-                    admin.Show();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
+                    if (usr.Role == "admin")
+                    {
+                        this.Hide();
+                        //this.Visible = false;
+                        adminMenu admin = new adminMenu();
+                        admin.Show();
+                    }
+                    else if (usr.Role == "student")
+                    {
+                        this.Hide();
+                        //this.Visible = false;
+                        Form3 menu = new Form3();
+                        menu.Show();
+                    }
                 }
-                else if (usr.Role == "student")
+                else
                 {
-                    usr = null;
                     this.Hide();
-                    //this.Visible = false;
-                    Form3 menu = new Form3();
-                    menu.Show();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
+                    Type type = Type.GetType("курсач." + adminLog.LastFormUsed);
+                    Form f = (Form)Activator.CreateInstance(type);
+                    f.Show();
                 }
             }
             else
             {
                 MessageBox.Show("Incorrect Password or Login\nCheck if you entered the them correctly", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            usr = null; // clearing memory
         }
 
         private void Login_Resize(object sender, EventArgs e)
@@ -71,9 +77,10 @@ namespace курсач
         }
         private void Register_Click(object sender, EventArgs e)
         {
+            Hide();
             Register reg = new Register();
             reg.Show();
-            Hide();
+
         }
     }
 }

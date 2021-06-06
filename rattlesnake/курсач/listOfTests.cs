@@ -23,6 +23,11 @@ namespace курсач
             Units units = new Units();
             _prevForm = units;
 
+            if (selectedPU == null)
+                selectedPU = Properties.Settings.Default.selectedPu;
+            if (testName == null)
+                testName = Properties.Settings.Default.testName;
+
             var queryOftests = from t in db.The_Test
                                where t.Name_of_PU == selectedPU
                                select t.Test_name;

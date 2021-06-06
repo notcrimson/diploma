@@ -28,7 +28,7 @@ namespace курсач
         string pErrorMessage;
         string cpErrorMessage;
 
-        public byte[] image;
+        byte[] image;
 
         public Register()
         {
@@ -39,7 +39,8 @@ namespace курсач
         {
             ActiveControl = Namee;
             Login lg = new Login();
-            previousForm = lg;
+            _prevForm = lg;
+            timer1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace курсач
             }
             else
             {
-                MessageBox.Show("All fields are unfilled", "Error",MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                MessageBox.Show("All fields are unfilled", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void NameeCheck()
@@ -203,8 +204,8 @@ namespace курсач
         private void timer1_Tick(object sender, EventArgs e)
         {
             if ((nameError.Visible && usernameError.Visible && passError.Visible && confirmpassError.Visible) || (
-                String.IsNullOrEmpty(Namee.Text) && String.IsNullOrEmpty(Username.Text) && String.IsNullOrEmpty(Password.Text) && 
-                String.IsNullOrEmpty(ConfirmPassword.Text)) )
+                String.IsNullOrEmpty(Namee.Text) && String.IsNullOrEmpty(Username.Text) && String.IsNullOrEmpty(Password.Text) &&
+                String.IsNullOrEmpty(ConfirmPassword.Text)))
             {
                 confirmationForUpdate = false;
             }
@@ -298,9 +299,28 @@ namespace курсач
             }
             toolTip1.SetToolTip(confirmpassError, cpErrorMessage);
         }
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        protected override void BackButton_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
+            regexString = null;
+            numb = null;
+            capL = null;
+            nErrorMessage = null;
+            uErrorMessage = null;
+            pErrorMessage = null;
+            cpErrorMessage = null;
+            image = null;
+            toolTip1.RemoveAll();
 
+            previousForm = _prevForm;
+
+            Dispose();
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            this.Close();
+            previousForm.Show();
         }
     }
 }

@@ -44,9 +44,8 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.AutoEllipsis = true;
             this.button2.Location = new System.Drawing.Point(242, 218);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 101);
@@ -57,9 +56,8 @@
             // 
             // profile
             // 
-            this.profile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.profile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.profile.AutoEllipsis = true;
             this.profile.Location = new System.Drawing.Point(521, 218);
             this.profile.Name = "profile";
             this.profile.Size = new System.Drawing.Size(219, 101);
@@ -82,6 +80,8 @@
             // 
             // VocabularyButton
             // 
+            this.VocabularyButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.VocabularyButton.AutoEllipsis = true;
             this.VocabularyButton.Location = new System.Drawing.Point(242, 340);
             this.VocabularyButton.Name = "VocabularyButton";
             this.VocabularyButton.Size = new System.Drawing.Size(219, 101);

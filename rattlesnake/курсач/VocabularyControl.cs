@@ -17,6 +17,8 @@ namespace курсач
         public VocabularyControl()
         {
             InitializeComponent();
+            wordTextbox.MouseHover += Control_MouseHover;
+            definitionTextbox.MouseHover += Control_MouseHover;
         }
         public string Word
         {

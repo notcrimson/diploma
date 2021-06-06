@@ -28,6 +28,10 @@ namespace курсач
 
         private void Tests_Load(object sender, EventArgs e)
         {
+            if (selectedPU == null)
+                selectedPU = Properties.Settings.Default.selectedPu;
+            if (testName == null)
+                testName = Properties.Settings.Default.testName;
             //List<object> lmao = new List<object>();
             //var quer = from paa in db.Tests
             //           where paa.Test_name == "kek2"

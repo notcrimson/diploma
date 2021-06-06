@@ -20,8 +20,8 @@ namespace курсач
         public static string selectedPU { get; set; }
         public static string testName { get; set; }
         List<Form> openForms = new List<Form>();
-        Bitmap blackSnake = Resources.rattlesnake2;
-        Bitmap whiteSnake = Resources.rattelsnake2white;
+        readonly Bitmap blackSnake = Resources.rattlesnake2;
+        readonly Bitmap whiteSnake = Resources.rattelsnake2white;
         public Form _prevForm { get; set; }
 
         Point lastClick;
@@ -37,10 +37,10 @@ namespace курсач
 
         private void basicForm_Load(object sender, EventArgs e)
         {
-            if (Form.ActiveForm is Login)
-                BackButton.Visible = false;
-            else
-                BackButton.Visible = true;
+            //if (Form.ActiveForm is Login)
+            //    BackButton.Visible = false;
+            //else
+            //    BackButton.Visible = true;
         }
 
         public void label2_MouseHover(object sender, EventArgs e)
@@ -67,13 +67,10 @@ namespace курсач
             DialogResult res = MessageBox.Show("Are you sure you want to exit", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {
-
                 User_Log existingLog = db.User_Log.Where(x => x.UserID == USER.UserId).FirstOrDefault();
-                //User_Log existingLog = db.User_Log.Find(2);
                 User_Log log = new User_Log();
                 if (existingLog == null)
                 {
-                    //return; 
                     log.UserID = USER.UserId;
                     log.LastFormUsed = this.Name.ToString();
                     db.User_Log.Add(log);
@@ -81,7 +78,6 @@ namespace курсач
                 else
                 {
                     existingLog.LastFormUsed = this.Name.ToString();
-                    //db.Entry(existingLog).CurrentValues.SetValues(log);
                 }
                 
                 try
@@ -108,13 +104,6 @@ namespace курсач
         {
             fHide.BackColor = Color.OliveDrab;
         }
-
-        //private void Back_Click(object sender, EventArgs e)
-        //{
-        //    this.Hide();
-        //    previousForm.Show();
-        //    previousForm = this;
-        //}
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -184,8 +173,11 @@ namespace курсач
                         {
                             if (f.Name != "Login")
                             {
-                                f.Close();
                                 f.Dispose();
+                                //GC.Collect();
+                                //GC.WaitForPendingFinalizers();
+                                //GC.Collect();
+                                f.Close();
                             }
                         }
                         openForms.Clear();
@@ -208,8 +200,11 @@ namespace курсач
                         {
                             if (f.Name != "Login")
                             {
-                                f.Close();
                                 f.Dispose();
+                                //GC.Collect();
+                                //GC.WaitForPendingFinalizers();
+                                //GC.Collect();
+                                f.Close();
                             }
                         }
                         openForms.Clear();

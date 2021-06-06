@@ -76,6 +76,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Edit profile";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // label3
             // 
@@ -114,6 +115,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 30);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.Visible = false;
             // 
             // Profile
             // 
