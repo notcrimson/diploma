@@ -252,7 +252,9 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Professional_unit.datasource" />
+    <None Include="Properties\DataSources\Result.datasource" />
     <None Include="Properties\DataSources\Test.datasource" />
+    <None Include="Properties\DataSources\The_Test.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

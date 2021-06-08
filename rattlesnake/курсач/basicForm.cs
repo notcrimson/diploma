@@ -124,7 +124,6 @@ namespace курсач
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
             }
-
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e) //sizer

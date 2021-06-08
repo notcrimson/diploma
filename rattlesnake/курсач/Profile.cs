@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using курсач;
+using System.Linq.Expressions;
 
 namespace курсач
 {
     public partial class Profile : basicForm
     {
         private Users student { get; set; }
+        string SelectedPU { get; set; }
+        string test { get; set; }
         public Profile()
         {
             InitializeComponent();
@@ -23,6 +26,11 @@ namespace курсач
         {
             Form3 menu = new Form3();
             _prevForm = menu;
+            List<string> test = new List<string>();
+            test.Add("All professional units");
+            test.AddRange(db.The_Test.Select(x => x.Name_of_PU).Distinct().ToList());
+            the_TestBindingSource.DataSource = test;
+            SelectedPU = PUsortComboBox.SelectedItem.ToString();
 
             student = db.Users.FirstOrDefault(x => x.UserId == USER.UserId && x.Role == "student");
             if (student != null)
@@ -34,19 +42,17 @@ namespace курсач
                 }
                 label3.Text = student.Name;
                 student = null;
-
             }
-            GetResults();
+            GetResults(db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date).ToList());
         }
-        private void GetResults()
+        private void GetResults(List<Result> results)
         {
-            IQueryable<Result> results = db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date);
             foreach (var result in results)
             {
                 UserControl1 resultControl = new UserControl1();
                 resultControl.TName = result.Test_name;
-                resultControl.TDate = result.Date?.ToString("dd/mm/yyyy\n" +
-                    "H:mm"); ;
+                resultControl.TDate = result.Date?.ToString("dd/MM/yyyy\n" +
+                    "H:mm");
                 resultControl.TPercent = result.Percentage.ToString() + "%";
                 if (result.Percentage <= 100 && result.Percentage >= 90)
                 {
@@ -62,15 +68,55 @@ namespace курсач
                 }
                 resultLayoutPanel.Controls.Add(resultControl);
             }
-            results = null;
-
         }
 
-        //protected override void BackButton_Click(object sender, EventArgs e)
-        //{
-        //    Close();
-        //    previousForm.Show();
+        private void PUsortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            resultLayoutPanel.Controls.Clear();
+            if (PUsortComboBox.SelectedItem is null) return;
+            SelectedPU = PUsortComboBox.SelectedItem.ToString();
+            if (dateRadioButton.Checked)
+                distinctPu(db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date).ToList(),
+                    db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test), d => d.Date);
+            else if (percentageRadioButton.Checked)
+                distinctPu(db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(p => p.Percentage).ToList(),
+                    db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test), p => p.Percentage);
+        }
 
-        //}
+        private void filter_Changed(object sender, EventArgs e)
+        {
+            resultLayoutPanel.Controls.Clear();
+            if (dateRadioButton.Checked)
+                distinctPu(db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(d => d.Date).ToList(),
+                    db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test), d => d.Date);
+            else if (percentageRadioButton.Checked)
+                distinctPu(db.Result.Where(x => x.StudentID == USER.UserId).OrderByDescending(p => p.Percentage).ToList(),
+                    db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test), p => p.Percentage);
+
+        }
+        private void distinctPu(List<Result> resultForAllPU, IQueryable<Result> resultForSpecificPU, Func<Result, object> parameter)
+        {
+            List<Result> res = new List<Result>();
+            if (SelectedPU == "All professional units")
+                GetResults(resultForAllPU);
+            else
+            {
+                var testsFromSelectedPU = from selectedPu in db.The_Test
+                                          where selectedPu.Name_of_PU == SelectedPU
+                                          select selectedPu.Test_name;
+
+                foreach (var testName in testsFromSelectedPU)
+                {
+                    test = testName;
+                    res.AddRange(resultForSpecificPU);
+                }
+                if (dateRadioButton.Checked)
+                    GetResults(res.OrderByDescending(parameter).ToList());
+                else if (percentageRadioButton.Checked)
+                    GetResults(res.OrderByDescending(parameter).ToList());
+            }
+            test = null;
+        }
     }
 }
+

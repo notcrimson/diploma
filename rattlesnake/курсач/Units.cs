@@ -29,34 +29,79 @@ namespace курсач
 
                 List<string> profUnits = db.Professional_units.Select(x => x.Name_of_PU).ToList();
                 listBox1.Items.Add(profUnits[0]);
-                foreach (var profUnit in profUnits.ToList().Skip(1))
+                //string previouseItem = profUnits[0];
+                //foreach (var profUnit in profUnits)
+                for (int i = 0; i < profUnits.Count; i++)
                 {
                     bool finishedPU = false;
+                    bool noTestsInPU = false;
                     int j = 0;
+                    string tstName = profUnits[i];
                     var queryOftests = from t in db.The_Test
-                                       where t.Name_of_PU == profUnit
+                                       where t.Name_of_PU == tstName
                                        select t.Test_name;
 
                     foreach (var test in queryOftests)
                     {
+                        if (test == "Introduction to programming test questions")
+                        {
+                            //j++;
+                            continue;
+                        }
                         Result passedTest = db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test && x.Percentage >= 90).FirstOrDefault();
                         if (passedTest != null)
                             continue;
                         else
+                        {
                             j++;
+                            //previouseItem = test;
+                        }
+
+                    }
+
+                    if (queryOftests.Count() == 0)
+                    {
+                        try
+                        {
+                            listBox1.Items.Add("🔒 " + profUnits[i + 1]);
+                            noTestsInPU = true;
+                        }
+                        catch (System.ArgumentOutOfRangeException)
+                        {
+                            break;
+                        }
+                    }
+                    if (!noTestsInPU)
+                    {
+                        if (j == 0)
+                            finishedPU = true;
+
+                        if (finishedPU)
+                        {
+                            try
+                            {
+                                listBox1.Items.Add(profUnits[i + 1]);
+                            }
+                            catch (System.ArgumentOutOfRangeException)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            try
+                            {
+                                listBox1.Items.Add("🔒 " + profUnits[i + 1]);
+                            }
+                            catch (System.ArgumentOutOfRangeException)
+                            {
+                                break;
+                            }
+                        }
                     }
                     queryOftests.ToList().Clear(); // clearing memory
-
-                    if (j == 0)
-                        finishedPU = true;
-
-                    if (finishedPU)
-                        listBox1.Items.Add(profUnit);
-                    else
-                        listBox1.Items.Add("🔒 " + profUnit);
                 }
                 profUnits.Clear(); // clearing memory
-
             }
             else if (USER.Role == "admin")
             {
