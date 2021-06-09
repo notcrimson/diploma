@@ -20,7 +20,6 @@ namespace курсач
 
         private void VocabularyForm_Load(object sender, EventArgs e)
         {
-
             Form3 Mmenu = new Form3();
             _prevForm = Mmenu;
 

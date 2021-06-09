@@ -24,6 +24,7 @@ namespace курсач
         {
             adminMenu admenu = new adminMenu();
             _prevForm = admenu;
+            previousForm = _prevForm;
             var puQuery = from pus in db.Professional_units
                           select pus.Name_of_PU;
             foreach (var pu in puQuery)
@@ -68,7 +69,7 @@ namespace курсач
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.InnerException.InnerException.Message);
+                MessageBox.Show("Somethings wrong");
             }
         }
     }

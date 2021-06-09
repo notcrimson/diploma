@@ -43,18 +43,17 @@ namespace курсач
 
                     foreach (var test in queryOftests)
                     {
-                        if (test == "Introduction to programming test questions")
-                        {
-                            //j++;
-                            continue;
-                        }
+                        //if (test == "Introduction to programming test questions")
+                        //{
+                        //    //j++;
+                        //    continue;
+                        //}
                         Result passedTest = db.Result.Where(x => x.StudentID == USER.UserId && x.Test_name == test && x.Percentage >= 90).FirstOrDefault();
                         if (passedTest != null)
                             continue;
                         else
                         {
                             j++;
-                            //previouseItem = test;
                         }
 
                     }
@@ -175,6 +174,13 @@ namespace курсач
         private void Units_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+            StudentPU sPU = new StudentPU();
+            sPU.Show();
         }
     }
 }

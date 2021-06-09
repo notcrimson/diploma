@@ -7,7 +7,7 @@
     <ProjectGuid>{B56AF33B-1CDF-4F56-A095-09189AD6D34F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>курсач</RootNamespace>
-    <AssemblyName>курсач</AssemblyName>
+    <AssemblyName>RattleSnake</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rattlesnake2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
@@ -349,6 +352,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="rattlesnake2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

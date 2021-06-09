@@ -127,7 +127,9 @@ namespace курсач
                     RadioButton rd = new RadioButton();
                     rd.Location = new Point(radioButton2.Location.X, answerY);
                     rd.BackColor = radioButton2.BackColor;
-                    rd.AutoSize = true;
+                    rd.AutoEllipsis = true;
+                    rd.AutoSize = false;
+                    rd.Size = new Size(788, 73);
 
                     rd.Text = sepp[a];
                     a++;

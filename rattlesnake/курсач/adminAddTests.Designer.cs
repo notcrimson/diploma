@@ -214,6 +214,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(406, 31);
             this.textBox3.TabIndex = 3;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // label5

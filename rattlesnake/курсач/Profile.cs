@@ -35,10 +35,13 @@ namespace курсач
             student = db.Users.FirstOrDefault(x => x.UserId == USER.UserId && x.Role == "student");
             if (student != null)
             {
-                using (MemoryStream ms = new MemoryStream(student.ProfilePic))
+                if (student.ProfilePic != null)
                 {
-                    pictureBox2.Image = Image.FromStream(ms);
-                    ms.Dispose();
+                    using (MemoryStream ms = new MemoryStream(student.ProfilePic))
+                    {
+                        pictureBox2.Image = Image.FromStream(ms);
+                        ms.Dispose();
+                    }
                 }
                 label3.Text = student.Name;
                 student = null;

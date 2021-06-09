@@ -62,14 +62,14 @@
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
+            this.radioButton2.AutoEllipsis = true;
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Location = new System.Drawing.Point(165, 84);
+            this.radioButton2.Location = new System.Drawing.Point(165, 72);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(147, 26);
+            this.radioButton2.Size = new System.Drawing.Size(788, 71);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
+            this.radioButton2.Text = "radibutton2";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
             // panel3
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.radioButton2);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(986, 249);
+            this.panel3.Size = new System.Drawing.Size(986, 285);
             this.panel3.TabIndex = 2;
             this.panel3.Visible = false;
             // 
@@ -91,7 +91,7 @@
             this.label3.AutoEllipsis = true;
             this.label3.Location = new System.Drawing.Point(108, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(845, 56);
+            this.label3.Size = new System.Drawing.Size(845, 40);
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
             // 
@@ -132,7 +132,6 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testBindingSource)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

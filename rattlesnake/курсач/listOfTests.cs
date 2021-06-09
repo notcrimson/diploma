@@ -68,6 +68,7 @@ namespace курсач
         }
         private void goToTest()
         {
+            if (listBox1.SelectedItem is null) return;
             if (Regex.IsMatch(listBox1.SelectedItem.ToString(), @"🔒"))
             {
                 return;

@@ -209,9 +209,19 @@ namespace курсач
                 "Test name", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
-                textBox3.Visible = false;
-                label5.Visible = false;
-                label1.Text = textBox3.Text;
+                var checkTestName = db.The_Test.FirstOrDefault(x => x.Test_name == textBox3.Text);
+                if (checkTestName != null)
+                {
+                    MessageBox.Show($"A test with the name: \"{textBox3.Text}\"\nAlready exists. Please create a different name");
+                    textBox3.Clear();
+                    ActiveControl = textBox3;
+                }
+                else
+                {
+                    textBox3.Visible = false;
+                    label5.Visible = false;
+                    label1.Text = textBox3.Text;
+                }
             }
             else
             {
@@ -257,25 +267,25 @@ namespace курсач
                     k2 += answers[i] + ", ";
                 }
             }
-            MessageBox.Show(k2);
+            //MessageBox.Show(k2);
 
             tca.Correct_answers = k2;
             db.The_Test.Add(tca);
-            try
-            {
-                db.SaveChanges();
-                MessageBox.Show("correct answers added");
-            }
-            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-            {
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
-                    }
-                }
-            }
+            //try
+            //{
+            //    db.SaveChanges();
+            //    //MessageBox.Show("correct answers added");
+            //}
+            //catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            //{
+            //    foreach (var validationErrors in ex.EntityValidationErrors)
+            //    {
+            //        foreach (var validationError in validationErrors.ValidationErrors)
+            //        {
+            //            MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+            //        }
+            //    }
+            //}
 
             foreach (Control p in flowLayoutPanel1.Controls)
             {
@@ -314,33 +324,60 @@ namespace курсач
             }
 
 
-            Questions test = new Questions();
+            
             foreach (var a in questions)
             {
                 //test.Name_of_PU = selectedItem;
+                Questions test = new Questions();
                 test.Test_name = label1.Text;
                 test.Question = questions[num];
                 test.Answers = allAnswers[num];
-                test.Correct_Answer = answers[num];
-                db.Questions.Add(test);
                 try
                 {
-                    db.SaveChanges();
-                    MessageBox.Show("added");
+                    test.Correct_Answer = answers[num];
                 }
-                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                catch(System.ArgumentOutOfRangeException)
                 {
-                    foreach (var validationErrors in ex.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
-                        }
-                    }
+                    MessageBox.Show("Check that you gave a correct answer to the question by pressing the radio button next to the answer","Not all correct answers are chosen",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+                db.Questions.Add(test);
                 num++;
             }
+            try
+            {
+                db.SaveChanges();
+                //MessageBox.Show("added");
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        MessageBox.Show($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
 
+
+            MessageBox.Show("Test added!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            List<Form> openForms = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (var f in openForms)
+            {
+                if (f.Name != "Login")
+                {
+                    f.Close();
+                    f.Dispose();
+                }
+            }
+            openForms.Clear();
+            Units unitsAdmin = new Units();
+            unitsAdmin.Show();
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -388,6 +425,11 @@ namespace курсач
         private void textBox2_Enter(object sender, EventArgs e)
         {
             pp = flowLayoutPanel1.Controls[panelN];
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
