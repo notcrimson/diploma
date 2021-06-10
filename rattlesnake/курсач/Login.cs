@@ -64,7 +64,8 @@ namespace курсач
             }
             else
             {
-                MessageBox.Show("Incorrect Password or Login\nCheck if you entered the them correctly", "Wrong credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect Password or Login\nCheck if you entered the them correctly", "Wrong credentials", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             usr = null; // clearing memory
         }
@@ -80,7 +81,6 @@ namespace курсач
             Hide();
             Register reg = new Register();
             reg.Show();
-
         }
     }
 }

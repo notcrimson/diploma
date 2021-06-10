@@ -143,7 +143,6 @@ namespace курсач
             Close();
             StudentPU sPU = new StudentPU();
             sPU.Show();
-
         }
 
         private void Write_a_test_Click(object sender, EventArgs e)
@@ -151,14 +150,12 @@ namespace курсач
             Close();
             listOfTests test = new listOfTests();
             test.Show();
-
         }
         private void addTest_Click(object sender, EventArgs e)
         {
             Close();
             adminAddTests a = new adminAddTests();
             a.Show();
-
         }
         private void Units_Resize(object sender, EventArgs e)
         {

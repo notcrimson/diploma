@@ -67,13 +67,9 @@ namespace курсач
             posAnswerRadioBut.Location = radioButton1.Location;
             posAnswerRadioBut.Size = radioButton1.Size;
             posAnswerRadioBut.Text = radioButton1.Text;
-
-
-            //p.Controls.Add(possibleAnswer);
+            
             p.Controls.Add(posAnswerTextBox);
             p.Controls.Add(posAnswerRadioBut);
-
-            //p.Controls.Add(panQ);
 
             // CREATING BOTTEM PANEL WITH THE ADD AND DELETE BUTTONS
             Panel bp = new Panel();
@@ -97,7 +93,6 @@ namespace курсач
             del.Text = button2.Text;
             del.BackColor = button2.BackColor;
             del.Click += new EventHandler(this.deletePossibleAnswer);
-
 
             bp.Controls.Add(add);
             bp.Controls.Add(del);
@@ -135,8 +130,6 @@ namespace курсач
             spaceBetweenQ += 50;
 
             var panel = flowLayoutPanel1.Controls[panelN];
-            //panel.Controls.Add(anotherAnswer);
-            //panel.Controls.Add(possibleAnswer);
             panel.Controls.Add(posAnswerTextBox);
             panel.Controls.Add(posAnswerRadioBut);
 
@@ -145,9 +138,7 @@ namespace курсач
 
         private void deletePossibleAnswer(object sender, EventArgs e)
         {
-
             var panel = flowLayoutPanel1.Controls[panelN];
-            //MessageBox.Show(panel.Controls.Count.ToString());
             if (panel.Controls.Count > 5)
             {
                 panel.Controls.RemoveAt(panel.Controls.Count - 1);
@@ -255,7 +246,6 @@ namespace курсач
                     }
                 }
             }
-
             for (int i = 0; i < answers.Count; i++)
             {
                 if (i + 1 == answers.Count)
@@ -327,7 +317,6 @@ namespace курсач
             
             foreach (var a in questions)
             {
-                //test.Name_of_PU = selectedItem;
                 Questions test = new Questions();
                 test.Test_name = label1.Text;
                 test.Question = questions[num];
@@ -338,7 +327,8 @@ namespace курсач
                 }
                 catch(System.ArgumentOutOfRangeException)
                 {
-                    MessageBox.Show("Check that you gave a correct answer to the question by pressing the radio button next to the answer","Not all correct answers are chosen",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Check that you gave a correct answer to the question by pressing the radio button next to the answer",
+                        "Not all correct answers are chosen",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 db.Questions.Add(test);
@@ -347,7 +337,6 @@ namespace курсач
             try
             {
                 db.SaveChanges();
-                //MessageBox.Show("added");
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {

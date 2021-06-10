@@ -35,7 +35,6 @@ namespace курсач
             this.Close();
             Profile profile = new Profile();
             profile.Show();
-
         }
 
         private void VocabularyButton_Click(object sender, EventArgs e)

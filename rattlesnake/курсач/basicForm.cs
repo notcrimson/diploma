@@ -241,15 +241,12 @@ namespace курсач
         protected virtual void BackButton_Click(object sender, EventArgs e)
         {
             previousForm = _prevForm;
-
             Dispose();
-
             GC.Collect();
             GC.WaitForPendingFinalizers();
             GC.Collect();
             this.Close();
             previousForm.Show();
-            //previousForm.Visible = true;
         }
     }
 }
