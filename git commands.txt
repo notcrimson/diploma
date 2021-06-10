@@ -1,0 +1,25 @@
+set local user
+/
+git config user.name "notcrimson"
+git config user.email artden1mc@gmail.com
+/
+//check if user set
+git config --list
+//
+info commands
+/
+git remote -v
+/
+for pushing
+/
+git add remote origin "https://github.com/notcrimson/diploma.git"
+git push -u origin master
+/
+for pulling
+/
+git pull 'remote_name' 'branch_name'
+git pull "https://github.com/notcrimson/diploma.git"
+or
+git pull origin master
+/
+
