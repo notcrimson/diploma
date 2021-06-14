@@ -121,6 +121,12 @@
     <Compile Include="AdminPUsChanges.Designer.cs">
       <DependentUpon>AdminPUsChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogoutMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogoutMessage.Designer.cs">
+      <DependentUpon>LogoutMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Model1.cs" />
     <Compile Include="model\Professional_units.cs" />
     <Compile Include="Profile.cs">
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPUsChanges.resx">
       <DependentUpon>AdminPUsChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoutMessage.resx">
+      <DependentUpon>LogoutMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
@@ -356,5 +365,6 @@
   <ItemGroup>
     <Content Include="rattlesnake2.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

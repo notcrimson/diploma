@@ -91,10 +91,6 @@ namespace курсач
                 .IsUnicode(false);
 
             modelBuilder.Entity<Users>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Users>()
                 .Property(e => e.Password)
                 .IsUnicode(false);
 

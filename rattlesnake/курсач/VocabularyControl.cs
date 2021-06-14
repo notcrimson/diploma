@@ -40,15 +40,15 @@ namespace курсач
         {
             if ((word != null) && (word.Pronunciation != null))
             {
-                //a:
+                a:
                 try
                 {
                     File.WriteAllBytes(Environment.CurrentDirectory.ToString() + "\\PUs\\word.mp3", word.Pronunciation);
                 }
                 catch (Exception ex)
                 {
-                    //goto a;
-                    MessageBox.Show(ex.InnerException.InnerException.Message);
+                    goto a;
+                    //MessageBox.Show(ex.InnerException.InnerException.Message);
                 }
                 axWindowsMediaPlayer1.URL = Environment.CurrentDirectory.ToString() + "\\PUs\\word.mp3";
             }
@@ -78,12 +78,12 @@ namespace курсач
 
         private void Control_MouseHover(object sender, EventArgs e)
         {
-                BorderStyle = BorderStyle.Fixed3D;
+                //BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void Control_MouseLeave(object sender, EventArgs e)
         {
-            BorderStyle = BorderStyle.None;
+            //BorderStyle = BorderStyle.None;
         }
     }
 }

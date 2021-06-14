@@ -64,49 +64,10 @@ namespace курсач
 
         private void label2_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Are you sure you want to exit", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (res == DialogResult.OK)
-            {
-                if (USER is null)
-                {
-                    Application.Exit();
-                    return;
-                }
-                User_Log existingLog = db.User_Log.Where(x => x.UserID == USER.UserId).FirstOrDefault();
-                User_Log log = new User_Log();
-                if (existingLog == null)
-                {
-                    log.UserID = USER.UserId;
-                    log.LastFormUsed = this.Name.ToString();
-                    db.User_Log.Add(log);
-                }
-                else
-                {
-                    existingLog.LastFormUsed = this.Name.ToString();
-                }
-                
-                try
-                {
-                    db.SaveChanges();
-                    Properties.Settings.Default.selectedPu = selectedPU;
-                    Properties.Settings.Default.testName = testName;
-                    Properties.Settings.Default.Save();
-                }
-                catch (System.Data.Entity.Validation.DbEntityValidationException f)
-                {
-                    foreach (var eve in f.EntityValidationErrors)
-                    {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
-                }
-                Application.Exit();
-            }
+            previousForm = this;
+            LogoutMessage logoutMessage = new LogoutMessage();
+            logoutMessage.Show();
+           
         }
 
         private void fHide_MouseHover(object sender, EventArgs e)

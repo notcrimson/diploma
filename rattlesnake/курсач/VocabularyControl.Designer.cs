@@ -80,6 +80,7 @@ namespace курсач
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.definitionTextbox);
@@ -88,7 +89,7 @@ namespace курсач
             this.ForeColor = System.Drawing.Color.DarkGreen;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "VocabularyControl";
-            this.Size = new System.Drawing.Size(866, 120);
+            this.Size = new System.Drawing.Size(864, 118);
             this.Enter += new System.EventHandler(this.VocabularyControl_Enter);
             this.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
             this.MouseHover += new System.EventHandler(this.Control_MouseHover);

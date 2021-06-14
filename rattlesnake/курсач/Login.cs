@@ -30,36 +30,39 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            usr = db.Users.FirstOrDefault(x => x.Login == textBox1.Text);
+            usr = db.Users.FirstOrDefault(x => x.Login == textBox1.Text && x.Password == textBox2.Text);
 
-            if ((usr != null) && (usr.Password == textBox2.Text))
+            if (usr != null)
             {
-                USER = usr;
-                User_Log adminLog = db.User_Log.FirstOrDefault(x => x.UserID == USER.UserId);
+                using (Model1 dbo = new Model1())
+                {
+                    USER = usr;
+                    User_Log adminLog = dbo.User_Log.FirstOrDefault(x => x.UserID == USER.UserId);
 
-                if (adminLog == null)
-                {
-                    if (usr.Role == "admin")
+                    if (adminLog == null)
+                    {
+                        if (usr.Role == "admin")
+                        {
+                            this.Hide();
+                            //this.Visible = false;
+                            adminMenu admin = new adminMenu();
+                            admin.Show();
+                        }
+                        else if (usr.Role == "student")
+                        {
+                            this.Hide();
+                            //this.Visible = false;
+                            Form3 menu = new Form3();
+                            menu.Show();
+                        }
+                    }
+                    else
                     {
                         this.Hide();
-                        //this.Visible = false;
-                        adminMenu admin = new adminMenu();
-                        admin.Show();
+                        Type type = Type.GetType("курсач." + adminLog.LastFormUsed);
+                        Form f = (Form)Activator.CreateInstance(type);
+                        f.Show();
                     }
-                    else if (usr.Role == "student")
-                    {
-                        this.Hide();
-                        //this.Visible = false;
-                        Form3 menu = new Form3();
-                        menu.Show();
-                    }
-                }
-                else
-                {
-                    this.Hide();
-                    Type type = Type.GetType("курсач." + adminLog.LastFormUsed);
-                    Form f = (Form)Activator.CreateInstance(type);
-                    f.Show();
                 }
             }
             else
@@ -81,6 +84,29 @@ namespace курсач
             Hide();
             Register reg = new Register();
             reg.Show();
+        }
+
+        private void textBox2_MouseHover(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '\0';
+        }
+
+        private void textBox2_MouseLeave(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '•';
+        }
+
+        private void Login_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible == true)
+            {
+                usr = null;
+                USER = null;
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
